@@ -1,3 +1,3 @@
 # GameClue
 
-This is a platform
+This is a game platform for researching audiovisual clues.
