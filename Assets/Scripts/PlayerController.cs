@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -36,5 +37,14 @@ public class PlayerController : MonoBehaviour
         { 
             Instantiate(bullet, transform.position, Quaternion.identity);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if ( other.name == "Asteroid(Clone)" || other.name == "Debris(Clone)") 
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
     }
 }

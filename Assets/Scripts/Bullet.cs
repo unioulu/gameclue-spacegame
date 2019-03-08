@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        if(other.name == "Asteroid(Clone)") { Destroy(gameObject); }
+
     }
 }
