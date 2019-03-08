@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject coinPrefab;
     public float speed = 0.1f;
-    public int enemySpawnRate = 4;
+    public int coinSpawnRate = 8;
 
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -19,13 +19,13 @@ public class EnemySpawner : MonoBehaviour
     {
         if (transform.position.x < boundary_left || transform.position.x > boundary_right) { dir = !dir; }
 
-        if (dir) { transform.Translate(new Vector3(speed,0,0)); }
+        if (dir) { transform.Translate(new Vector3(speed, 0, 0)); }
         else { transform.Translate(new Vector3(-speed, 0, 0)); }
 
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= enemySpawnRate)
+        if (spawnTimer >= coinSpawnRate)
         {
-            Instantiate(enemyPrefab,transform.position,Quaternion.identity);
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
             spawnTimer = 0;
         }
 

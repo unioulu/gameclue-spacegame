@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AsteroidBehaviour : MonoBehaviour
 {
+    public GameObject debris;
+
     public float speed = 0.8f;
     public int health = 3;
-    public GameObject debris;
 
     private Rigidbody2D rb;
     private GameObject[] debris_instances = new GameObject[2];
@@ -39,8 +40,8 @@ public class AsteroidBehaviour : MonoBehaviour
                 debris_instances[0] = Instantiate(debris, new Vector3(pos.x + debrisSpread, pos.y, pos.z), Quaternion.identity);
                 debris_instances[1] = Instantiate(debris, new Vector3(pos.x - debrisSpread, pos.y, pos.z), Quaternion.identity);
 
-                debris_instances[0].GetComponent<Rigidbody2D>().velocity = new Vector3(debrisAngle, -1f, 0);
-                debris_instances[1].GetComponent<Rigidbody2D>().velocity = new Vector3(-debrisAngle, -1f, 0);
+                debris_instances[0].GetComponent<Rigidbody2D>().velocity = new Vector3(debrisAngle, -speed, 0);
+                debris_instances[1].GetComponent<Rigidbody2D>().velocity = new Vector3(-debrisAngle, -speed, 0);
               
 
                 Destroy(gameObject);
