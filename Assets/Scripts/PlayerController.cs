@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x > boundary_left) { transform.position = new Vector3(lastPos.x + speed, transform.position.y, 0); }
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x < boundary_right) { transform.position = new Vector3(lastPos.x - speed, transform.position.y, 0); }
+        if (Input.GetKey(KeyCode.RightArrow) && (transform.position.x + speed) < boundary_right) { transform.position = new Vector3(lastPos.x + speed, transform.position.y, 0); }
+        if (Input.GetKey(KeyCode.LeftArrow) && (transform.position.x + speed) > boundary_left) { transform.position = new Vector3(lastPos.x - speed, transform.position.y, 0); }
         lastPos = transform.position;
 
         if (Input.GetKeyDown(KeyCode.Space)) 
