@@ -59,7 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Asteroid(Clone)" || other.name == "Debris(Clone)")
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag == "Enemy")
         {
             SceneManager.LoadScene("SampleScene");
         }

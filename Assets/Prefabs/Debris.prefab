@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2206374744496687463}
   m_Layer: 0
   m_Name: Debris
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f9efa44497c4c5ca8f7d7190417c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.8
+  health: 1
