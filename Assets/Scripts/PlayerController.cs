@@ -32,21 +32,21 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 pos = transform.position;
         if (keysPressed(MOVE_LEFT) && (pos.x + speed) > boundary_left) {
-            transform.position = new Vector3(lastPos.x - speed, pos.y, 0);
+            transform.position = new Vector3(transform.position.x - speed, transform.position.y, 0);
         }
 
         if (keysPressed(MOVE_RIGHT) && (pos.x + speed) < boundary_right) {
-            transform.position = new Vector3(lastPos.x + speed, pos.y, 0);
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y, 0);
         }
 
-        pos = transform.position;
+        //pos = transform.position;
 
         if (keysPressed(MOVE_UP) && (pos.y + speed) < boundary_top) {
-            transform.position = new Vector3(pos.x, lastPos.y + speed, 0); 
+            transform.position = new Vector3(transform.position.x, transform.position.y + speed, 0); 
         }
 
         if (keysPressed(MOVE_DOWN) && (pos.y + speed) > boundary_bottom) {
-            transform.position = new Vector3(pos.x, lastPos.y - speed, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y - speed, 0);
         }
 
         if (Input.GetKeyDown(SHOOT))
