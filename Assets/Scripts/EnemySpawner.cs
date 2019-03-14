@@ -13,17 +13,21 @@ public class EnemySpawner : MonoBehaviour
     private float boundary_right = 10f;
     private bool direction = true;
 
+    public int seed = 100;
+
     private float spawnTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        Random.InitState(100);
+        Random.InitState(seed);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.deltaTime);
+
         if (transform.position.x < boundary_left || transform.position.x > boundary_right) { direction = !direction; }
 
         if (direction) { transform.Translate(new Vector3(speed,0,0)); }
