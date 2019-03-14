@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     public float speed = 1f;
     public int scoreValue = 100;
 
-    public CoinSpawner CoinSpawner { set; private get; }
+    public CoinHandler CoinHandler { set; private get; }
 
     private Rigidbody2D rb;
 
@@ -28,7 +28,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            CoinSpawner.SetScore(scoreValue);
+            CoinHandler.SetScore(scoreValue);
             Destroy(gameObject);
         }
     }

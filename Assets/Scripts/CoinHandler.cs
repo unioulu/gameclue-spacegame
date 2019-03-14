@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawner : MonoBehaviour
+public class CoinHandler : MonoBehaviour
 {
     public GameObject coinPrefab;
     public float speed = 0.1f;
@@ -11,8 +11,8 @@ public class CoinSpawner : MonoBehaviour
     private GameObject coinInstance;
 
     private int score;
-    private float boundary_left = -10f;
-    private float boundary_right = 10f;
+    readonly float boundary_left = -10f;
+    readonly float boundary_right = 10f;
     private bool dir = true;
     private float spawnTimer;
 
@@ -36,7 +36,7 @@ public class CoinSpawner : MonoBehaviour
     private void InstantiateCoin()
     {
         coinInstance = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        coinInstance.GetComponent<Coin>().CoinSpawner = this;
+        coinInstance.GetComponent<Coin>().CoinHandler = this;
     }
 
     public void SetScore(int amount)
