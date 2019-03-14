@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinBehaviour : MonoBehaviour
+public class Coin : MonoBehaviour
 {
     public float speed = 1f;
+    public int scoreValue = 100;
+
+    public CoinSpawner CoinSpawner { set; private get; }
 
     private Rigidbody2D rb;
 
@@ -23,8 +26,9 @@ public class CoinBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
+            CoinSpawner.SetScore(scoreValue);
             Destroy(gameObject);
         }
     }
