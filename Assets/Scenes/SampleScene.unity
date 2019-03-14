@@ -143,8 +143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 3649519080648097393, guid: 9335369fc8b5447c89986b9e7834a57d,
     type: 3}
+  negCoinPrefab: {fileID: 3649519080648097393, guid: 55ea4eb0762f840ffb00a4dffa1bb0ee,
+    type: 3}
   speed: 0.15
   coinSpawnRate: 7
+  negCoinSpawnRate: 10
 --- !u!4 &457549750
 Transform:
   m_ObjectHideFlags: 0
