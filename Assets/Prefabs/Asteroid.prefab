@@ -165,6 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccec52f78961e6b42a8d080163a2eb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   active: 1
-  distance: 30
+  distance: 15

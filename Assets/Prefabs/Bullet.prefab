@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 84068606796700755}
   - component: {fileID: 719575157318650661}
   - component: {fileID: 5190953454184486575}
+  - component: {fileID: 5103276380820060218}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -142,3 +143,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &5103276380820060218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816670526083997164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccec52f78961e6b42a8d080163a2eb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  active: 1
+  distance: 10

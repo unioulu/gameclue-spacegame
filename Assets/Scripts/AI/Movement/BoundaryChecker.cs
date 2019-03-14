@@ -5,9 +5,6 @@ using UnityEngine;
 public class BoundaryChecker : MonoBehaviour
 {
 
-    [SerializeField]
-    public Camera camera;
-
     public bool active = true;
     public float distance = 10f;
 
