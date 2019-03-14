@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
     public float speed = 0.1f;
     public int enemySpawnRate = 4;
+
+    public GameObject[] enemyPrefabs;
 
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -17,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -30,7 +32,8 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= enemySpawnRate)
         {
-            Instantiate(enemyPrefab,transform.position,Quaternion.identity);
+            GameObject prefab = enemyPrefabs[Random.Range((int)0, (int)enemyPrefabs.Length)];
+            Instantiate(prefab, transform.position, Quaternion.identity);
             spawnTimer = 0;
         }
 
