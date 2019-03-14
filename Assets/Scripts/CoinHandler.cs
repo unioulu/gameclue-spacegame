@@ -5,8 +5,10 @@ using UnityEngine;
 public class CoinHandler : MonoBehaviour
 {
     public GameObject coinPrefab;
+    public GameObject negCoinPrefab;
     public float speed = 0.1f;
     public int coinSpawnRate = 8;
+    public int negCoinSpawnRate = 10;
 
     private GameObject coinInstance;
 
@@ -15,6 +17,7 @@ public class CoinHandler : MonoBehaviour
     readonly float boundary_right = 10f;
     private bool dir = true;
     private float spawnTimer;
+    private float negSpawnTimer;
 
 
     // Update is called once per frame
@@ -26,22 +29,31 @@ public class CoinHandler : MonoBehaviour
         else { transform.Translate(new Vector3(-speed, 0, 0)); }
 
         spawnTimer += Time.deltaTime;
+        negSpawnTimer += Time.deltaTime;
+
         if (spawnTimer >= coinSpawnRate)
         {
-            InstantiateCoin();
+            InstantiateCoin(coinPrefab);
             spawnTimer = 0;
+        }
+        if (negSpawnTimer >= negCoinSpawnRate)
+        {
+            InstantiateCoin(negCoinPrefab);
+            negSpawnTimer = 0;
         }
     }
 
-    private void InstantiateCoin()
+    private void InstantiateCoin(GameObject coin)
     {
-        coinInstance = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        coinInstance = Instantiate(coin, transform.position, Quaternion.identity);
         coinInstance.GetComponent<Coin>().CoinHandler = this;
     }
 
     public void SetScore(int amount)
     {
         score += amount;
+        if (score < 0)
+            score = 0;
     }
 
     private void OnGUI()
