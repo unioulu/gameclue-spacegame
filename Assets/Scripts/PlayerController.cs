@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public int texturePadding = 4;
 
     public float speed = 0.1f;
+    public float hitCooldown = 2f;
+    private float currHitCooldown;
+
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         lastPos = transform.position;
+        currHitCooldown = hitCooldown;
     }
 
     // Update is called once per frame
@@ -60,6 +64,11 @@ public class PlayerController : MonoBehaviour
         }
         
         lastPos = transform.position;
+
+        currHitCooldown -= Time.deltaTime;
+        if (currHitCooldown < 0)
+            currHitCooldown = 0;
+
     }
 
     private void OnGUI()
@@ -73,11 +82,12 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && currHitCooldown <= 0)
         {
             health--;
             if (health == 0)
                 SceneManager.LoadScene("SampleScene");
+            currHitCooldown = hitCooldown;
         }
     }
 
