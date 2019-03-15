@@ -58,6 +58,7 @@ public class CoinHandler : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.TextField(new Rect(0, 0,50 + score.ToString().Length * 10, 20), "Score: " + score.ToString());
+        int width = score.ToString().Length * 10;
+        GUI.TextField(new Rect(Screen.width/2 - width/2, 0,50 + width, 20), "Score: " + score.ToString());
     }
 }
