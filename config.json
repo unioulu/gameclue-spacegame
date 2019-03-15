@@ -1,0 +1,70 @@
+{
+	"spacegame": {
+		"player": {
+			"hitpoints": 3,
+			"clues": [{
+				"default": {
+					"visual": {
+						"sprite": "Assets/default/images/player.png",
+						"animation": null
+					},
+					"audio": {
+						"damage": "Assets/default/audio/player/damage.mp3",
+						"move": null
+					}
+				}
+			}, {
+				"high": {
+					"visual": {
+						"sprite": "Assets/high/images/player.png",
+						"animation": "Assets/high/animations/player.animation"
+					},
+					"audio": {
+						"damage": "Assets/high/audio/player/hifi_damage.mp3",
+						"move": "Assets/high/audio/thrusters_thursting.mp3"
+					}
+				}
+			}]
+
+		},
+		"enemies": {
+			"asteroidMedium": {
+				"hitpoints": 3,
+				"behavior": {
+					"movementstraight": {
+						"angle": 0,
+						"speed": 0.8
+					},
+					"ondeath": {
+						"spawn": [{
+							"asteroidSmall": {
+								"hitpoints": 1
+							}
+						}, {
+							"asteroidSmall": {
+								"hitpoints": 1,
+								"behavior": {
+									"movementStraight": {
+										"angle": 45
+									}
+								}
+							}
+						}]
+					}
+				},
+				"clues": {
+					"default": {
+						"visual": {
+							"sprite": "Assets/images/asteroid-medium.png",
+							"particles": null
+						},
+						"audio": {
+							"damage": "Assets/image/stone-cracking.mp3"
+						}
+					}
+				}
+			},
+			"asteroidSmall": {}
+		}
+	}
+}
