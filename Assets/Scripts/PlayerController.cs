@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
 
+    public int health = 3;
+    public Texture2D texture;
+    public int textureSize = 50;
+    public int texturePadding = 4;
+
     public float speed = 0.1f;
     private Vector3 lastPos;
     private float boundary_left = -10f;
@@ -57,12 +62,22 @@ public class PlayerController : MonoBehaviour
         lastPos = transform.position;
     }
 
+    private void OnGUI()
+    {
+        for (int i = 0; i < health; i++)
+        {
+            GUI.DrawTexture(new Rect(texturePadding + i * textureSize, Screen.height - textureSize - texturePadding, textureSize, textureSize), texture);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("SampleScene");
+            health--;
+            if (health == 0)
+                SceneManager.LoadScene("SampleScene");
         }
     }
 

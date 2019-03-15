@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 1019737327}
   - component: {fileID: 1019737326}
   - component: {fileID: 1019737330}
+  - component: {fileID: 1019737331}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -345,6 +346,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1816670526083997164, guid: 7e1f5396afafc41dcb91b64e22d1f141, type: 3}
+  health: 3
+  texture: {fileID: 0}
+  textureSize: 50
+  texturePadding: 4
   speed: 0.1
 --- !u!212 &1019737328
 SpriteRenderer:
@@ -424,3 +429,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1019737331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019737325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c59472f395e489989ef1c130ee242c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  texture: {fileID: 2800000, guid: eec844d74ba134626afd9dc284f724a1, type: 3}
+  textureSize: 50
+  texturePadding: 4
