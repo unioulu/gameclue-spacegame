@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 public class FpsLogger : MonoBehaviour
 {
-    float deltaTime = 0.0f;
-    float msec;
-    float fps;
-    string text;
-    List<string> fpsData = new List<string>();
+    private float deltaTime = 0.0f;
+    private float msec;
+    private float fps;
+    private string text;
+    private List<string> fpsData = new List<string>();
 
     void Update()
     {
@@ -23,8 +23,13 @@ public class FpsLogger : MonoBehaviour
 
     public void FpsToFile()
     {
-        // TODO: specify file destination
-        System.IO.File.WriteAllLines("/Users/johanneskantola/code/FPS_data.txt", fpsData);
+        /*TODO: specify file destination
+         *        
+        string destination = Application.dataPath;    <--  This returns the path of the assets folder
+        DirectoryInfo parent = Directory.GetParent(destination);
+
+        System.IO.File.WriteAllLines(destination, fpsData);
+        Debug.Log(destination);*/
     }
 
     /*void OnGUI()
