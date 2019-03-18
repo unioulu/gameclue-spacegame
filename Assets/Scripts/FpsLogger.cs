@@ -23,13 +23,12 @@ public class FpsLogger : MonoBehaviour
 
     public void FpsToFile()
     {
-        /*TODO: specify file destination
-         *        
-        string destination = Application.dataPath;    <--  This returns the path of the assets folder
-        DirectoryInfo parent = Directory.GetParent(destination);
+        //TODO: specify file destination
 
-        System.IO.File.WriteAllLines(destination, fpsData);
-        Debug.Log(destination);*/
+        string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        System.IO.File.WriteAllLines(path + "/test.txt", fpsData);
+
+        Debug.Log(path);
     }
 
     /*void OnGUI()
