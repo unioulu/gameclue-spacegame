@@ -6,19 +6,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject FPSLogger;
 
     public float speed = 0.1f;
     private Vector3 lastPos;
-    private float boundary_left = -10f;
-    private float boundary_right = 10f;
-    private float boundary_top = 4f;
-    private float boundary_bottom = -4f;
+    readonly float boundary_left = -10f;
+    readonly float boundary_right = 10f;
+    readonly float boundary_top = 4f;
+    readonly float boundary_bottom = -4f;
 
-    private KeyCode SHOOT = KeyCode.Space;
-    private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
-    private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
-    private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
-    private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
+    readonly KeyCode SHOOT = KeyCode.Space;
+    readonly List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
+    readonly List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
+    readonly List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
+    readonly List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
 
     // Start is called before the first frame update
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             SceneManager.LoadScene("SampleScene");
+            FpsLogger fl = FPSLogger.GetComponent<FpsLogger>();
+            fl.FpsToFile();
         }
     }
 

@@ -21,6 +21,12 @@ public class FpsLogger : MonoBehaviour
         fpsData.Add(text);
     }
 
+    public void FpsToFile()
+    {
+        // TODO: specify file destination
+        System.IO.File.WriteAllLines("/Users/johanneskantola/code/FPS_data.txt", fpsData);
+    }
+
     /*void OnGUI()
     {
         int w = Screen.width, h = Screen.height;
