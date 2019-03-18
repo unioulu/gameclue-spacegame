@@ -26,21 +26,31 @@ public class EventLogger
     }
 
 
-    public void Log(string message)
+    public static void Log(string message)
     {
         AddLog(new EventLog(message));
     }
 
-    public void AddLog(EventLog log)
+    public static void AddLog(EventLog log)
     {
-        logs.Add(log);
+        singleton().logs.Add(log);
+        singleton().DebugPrint();
+    }
+
+    public void DebugPrint()
+    {
+        foreach (EventLog log in logs)
+        {
+            Debug.Log(log.ToString());
+        }
     }
 
     public void WriteToFile()
     {
         string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-
-        using (StreamWriter file = new StreamWriter(desktopPath))
+        string filePath = Path.Combine(desktopPath, "log.txt");
+        
+        using (StreamWriter file = new StreamWriter(filePath, false))
         {
             foreach (EventLog log in logs)
             {

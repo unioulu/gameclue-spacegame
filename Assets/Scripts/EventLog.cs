@@ -9,12 +9,12 @@ public class EventLog {
 
     public static class EventCode
     {
-        static string KeyUp(KeyCode key) { return "KeyUp " + key; }
-        static string KeyDown(KeyCode key) { return "KeyDown " + key; }
+        public static string KeyUp(KeyCode key) { return "KeyUp " + key; }
+        public static string KeyDown(KeyCode key) { return "KeyDown " + key; }
 
-        const string damage = "PlayerDamage";
-        static string EnemyDamage(string enemyId) { return "EnemyDamage" + enemyId; }
-
+        public const string damage = "PlayerDamage";
+        public static string EnemyDamage(string enemyId) { return "EnemyDamage" + enemyId; }
+        public static string EnemyCreated(string enemyId) { return "EnemyCreated" + enemyId; }
     }
 
     public string message { private set; get; }
