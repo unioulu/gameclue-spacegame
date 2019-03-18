@@ -6,8 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject chargeBullet;
 
     public float speed = 0.1f;
+    public int chargeTime = 1;
+
+    private float charge;
+
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -49,9 +54,18 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - speed, 0);
         }
 
+        if (Input.GetKey(SHOOT))
+            charge += Time.deltaTime;
+
         if (Input.GetKeyUp(SHOOT))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            if(charge > chargeTime)
+                Instantiate(chargeBullet, transform.position, Quaternion.identity);
+            
+            else
+                Instantiate(bullet, transform.position, Quaternion.identity);
+
+            charge = 0;
         }
         
         lastPos = transform.position;

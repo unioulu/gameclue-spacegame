@@ -345,7 +345,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1816670526083997164, guid: 7e1f5396afafc41dcb91b64e22d1f141, type: 3}
+  chargeBullet: {fileID: 1816670526083997164, guid: b2ba54d81850644b9a8b6f9ae414f977,
+    type: 3}
   speed: 0.1
+  chargeTime: 1
 --- !u!212 &1019737328
 SpriteRenderer:
   m_ObjectHideFlags: 0
