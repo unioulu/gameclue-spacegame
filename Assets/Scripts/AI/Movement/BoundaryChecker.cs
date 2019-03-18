@@ -17,7 +17,7 @@ public class BoundaryChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enabled && Vector3.Distance(Vector3.zero, transform.position) > distance)
+        if (active && Vector3.Distance(Vector3.zero, transform.position) > distance)
         {
             Destroy(this.gameObject);
         }
