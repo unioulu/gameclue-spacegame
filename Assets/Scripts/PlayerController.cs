@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - speed, 0);
         }
 
-        if (Input.GetKeyDown(SHOOT))
+        if (Input.GetKeyUp(SHOOT))
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
         }
