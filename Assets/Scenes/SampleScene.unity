@@ -148,7 +148,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.093475305, g: 0.018689921, b: 0.26415092, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -240,8 +240,7 @@ MonoBehaviour:
   speed: 0.1
   enemySpawnRate: 4
   enemyPrefabs:
-  - {fileID: 8032413818210250046, guid: d302ab025df2840299d78176a85df861, type: 3}
-  - {fileID: 2838009046906801391, guid: 5957c94c363792d4496ac42c7cb58b95, type: 3}
+  - {fileID: 3332125444191270250, guid: 5d36e71a958c3374283b44a6460fbc83, type: 3}
   seed: 100
 --- !u!1 &1019737325
 GameObject:

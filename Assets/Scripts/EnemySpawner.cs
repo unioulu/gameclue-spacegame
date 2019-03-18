@@ -24,9 +24,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(Time.deltaTime);
+    void Update() {
 
         if (transform.position.x < boundary_left || transform.position.x > boundary_right) { direction = !direction; }
 
@@ -39,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject prefab = enemyPrefabs[Random.Range((int)0, (int)enemyPrefabs.Length)];
             Instantiate(prefab, transform.position, Quaternion.identity);
             spawnTimer = 0;
-            enemySpawnRate = RandomSpawnrate();
+            enemySpawnRate = 1000;// RandomSpawnrate();
         }
 
     }
