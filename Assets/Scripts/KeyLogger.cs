@@ -15,15 +15,22 @@ public class KeyLogger : MonoBehaviour
         codes.Add(KeyCode.RightArrow);
         codes.Add(KeyCode.UpArrow);
         codes.Add(KeyCode.DownArrow);
+        codes.Add(KeyCode.J);
+        codes.Add(KeyCode.I);
+        codes.Add(KeyCode.K);
+        codes.Add(KeyCode.L);
         codes.Add(KeyCode.Space);
+        codes.Add(KeyCode.W);
+        codes.Add(KeyCode.A);
+        codes.Add(KeyCode.S);
+        codes.Add(KeyCode.D);
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         foreach (KeyCode code in codes)
         {
             if (Input.GetKeyDown(code)) {
@@ -34,6 +41,5 @@ public class KeyLogger : MonoBehaviour
                 EventLogger.Log(EventLog.EventCode.KeyUp(code));
             }
         }
-
     }
 }
