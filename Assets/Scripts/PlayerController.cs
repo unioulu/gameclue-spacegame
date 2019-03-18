@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
             Instantiate(bullet, transform.position, Quaternion.identity);
         }
         
+        
+
         lastPos = transform.position;
     }
 
