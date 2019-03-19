@@ -31,9 +31,10 @@ public class AsteroidBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Vector3 pos = transform.position;
-        if (other.name == "Bullet(Clone)")
+        if (other.tag == "Bullet")
         {
-            health--;
+            int dmg = other.gameObject.GetComponent<Bullet>().damage;
+            health -= dmg;
 
             if (health <= 0)
             {
