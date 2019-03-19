@@ -31,7 +31,17 @@ public class KeyLogger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (KeyCode code in codes)
+        foreach (KeyCode code in System.Enum.GetValues(typeof(KeyCode))) {
+            if (Input.GetKeyDown(code))
+            {
+                EventLogger.Log(EventLog.EventCode.KeyDown(code));
+            }
+            if (Input.GetKeyUp(code))
+            {
+                EventLogger.Log(EventLog.EventCode.KeyUp(code));
+            }
+        }
+        /*foreach (KeyCode code in codes)
         {
             if (Input.GetKeyDown(code)) {
                 EventLogger.Log(EventLog.EventCode.KeyDown(code));
@@ -40,6 +50,6 @@ public class KeyLogger : MonoBehaviour
             {
                 EventLogger.Log(EventLog.EventCode.KeyUp(code));
             }
-        }
+        }*/
     }
 }
