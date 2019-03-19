@@ -8,6 +8,8 @@ public class GameNameGenerator : MonoBehaviour
 
     private List<string> words;
 
+    private string gameName = null;
+
     private void Start()
     {
         words = new List<string>();
@@ -23,9 +25,9 @@ public class GameNameGenerator : MonoBehaviour
 
     }
 
-    public string CreateName()
+    private string CreateName()
     {
-        string name = "";
+        gameName = "";
         const int wordCount = 4;
 
         for (int i = 0; i < wordCount; ++i)
@@ -36,10 +38,15 @@ public class GameNameGenerator : MonoBehaviour
             sb[0] = char.ToUpper(sb[0]);
             word = sb.ToString();
 
-            name += word;
+            gameName += word;
         }
 
-        return name;
+        return gameName;
+    }
+
+    public string Name()
+    {
+        return gameName == null ? CreateName() : gameName;
     }
 
 }
