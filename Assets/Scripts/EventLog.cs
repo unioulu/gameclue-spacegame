@@ -13,8 +13,8 @@ public class EventLog {
         public static string KeyDown(KeyCode key) { return "KeyDown " + key; }
 
         public const string damage = "PlayerDamage";
-        public static string EnemyDamage(string enemyId) { return "EnemyDamage" + enemyId; }
-        public static string EnemyCreated(string enemyId) { return "EnemyCreated" + enemyId; }
+        public static string EnemyDamage(string enemyId) { return "EnemyDamage " + enemyId; }
+        public static string EnemyCreated(string enemyId) { return "EnemyCreated " + enemyId; }
     }
 
     public string message { private set; get; }
