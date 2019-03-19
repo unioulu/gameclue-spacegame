@@ -34,7 +34,6 @@ public class EventLogger
     public static void AddLog(EventLog log)
     {
         singleton().logs.Add(log);
-        singleton().DebugPrint();
     }
 
     public void DebugPrint()
