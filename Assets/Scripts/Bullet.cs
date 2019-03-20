@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
+    public int damage = 1;
 
     private Rigidbody2D rb;
 

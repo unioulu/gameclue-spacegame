@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,8 +24,8 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-
+    void Update()
+    {
         if (transform.position.x < boundary_left || transform.position.x > boundary_right) { direction = !direction; }
 
         if (direction) { transform.Translate(new Vector3(speed,0,0)); }
@@ -34,10 +34,10 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= enemySpawnRate)
         {
-            GameObject prefab = enemyPrefabs[Random.Range((int)0, (int)enemyPrefabs.Length)];
+            GameObject prefab = enemyPrefabs[2];//Random.Range((int)0, (int)enemyPrefabs.Length)];
             Instantiate(prefab, transform.position, Quaternion.identity);
             spawnTimer = 0;
-            enemySpawnRate = 1000;// RandomSpawnrate();
+            enemySpawnRate = RandomSpawnrate();
         }
 
     }
