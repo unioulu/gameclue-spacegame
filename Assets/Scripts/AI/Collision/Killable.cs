@@ -6,8 +6,8 @@ public class Killable : MonoBehaviour
 {
 
     [SerializeField]
-    private int maxHealth = 3;
-    private int health;
+    protected int maxHealth = 3;
+    protected int health;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,22 @@ public class Killable : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0) { Destroy(gameObject); }
+        if (health <= 0) {
+            Destroy(gameObject);
+            OnDeath();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Bullet")
         {
-            health--;
+            health -= other.gameObject.GetComponent<Bullet>().damage;
         }
     }
+
+    protected virtual void OnDeath()
+    {
+
+    } 
 }
