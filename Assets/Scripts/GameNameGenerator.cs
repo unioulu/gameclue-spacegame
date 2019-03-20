@@ -10,7 +10,7 @@ public class GameNameGenerator : MonoBehaviour
 
     private string gameName = null;
 
-    private void Start()
+    private void Awake()
     {
         words = new List<string>();
         string path = Path.Combine(Application.streamingAssetsPath, "words.txt");

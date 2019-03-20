@@ -8,7 +8,7 @@ public class SplashScreenController : MonoBehaviour
 {
 
     [SerializeField]
-    GameNameGenerator nameGenerator;
+    GameNameGenerator nameGenerator = null;
 
     [SerializeField]
     UI.Text gameNameLabel = null;
