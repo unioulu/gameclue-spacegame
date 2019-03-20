@@ -7,6 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
     public float speed = 0.1f;
+    
+    public float hitCooldown = 2f;
+    private float currHitCooldown;
+
+    public int health = 3;
+    public Texture2D texture;
+    public int textureSize = 50;
+    public int texturePadding = 4;
 
     private Rigidbody2D rb;
     private Vector3 lastPos;
@@ -46,14 +54,30 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
+
+        currHitCooldown -= Time.deltaTime;
+        if (currHitCooldown < 0)
+            currHitCooldown = 0;
+
+    }
+
+    private void OnGUI()
+    {
+        for (int i = 0; i < health; i++)
+        {
+            GUI.DrawTexture(new Rect(texturePadding + i * textureSize, Screen.height - textureSize - texturePadding, textureSize, textureSize), texture);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && currHitCooldown <= 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            health--;
+            if (health == 0)
+                SceneManager.LoadScene("SampleScene");
+            currHitCooldown = hitCooldown;
         }
     }
 
