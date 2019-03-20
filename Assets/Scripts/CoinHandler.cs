@@ -52,8 +52,6 @@ public class CoinHandler : MonoBehaviour
     public void SetScore(int amount)
     {
         score += amount;
-        if (score < 0)
-            score = 0;
     }
 
     private void OnGUI()
