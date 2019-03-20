@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
-
     public float speed = 0.1f;
+
+    private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
     }
 
@@ -31,32 +33,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        if (keysPressed(MOVE_LEFT) && (pos.x + speed) > boundary_left) {
-            transform.position = new Vector3(transform.position.x - speed, transform.position.y, 0);
-        }
+        Vector3 dirVector = Vector3.zero;
+        if (keysPressed(MOVE_LEFT) && pos.x > boundary_left) { dirVector.x = -1; }
 
-        if (keysPressed(MOVE_RIGHT) && (pos.x + speed) < boundary_right) {
-            transform.position = new Vector3(transform.position.x + speed, transform.position.y, 0);
-        }
+        if (keysPressed(MOVE_RIGHT) && pos.x < boundary_right) { dirVector.x = 1; }
 
-        //pos = transform.position;
+        if (keysPressed(MOVE_UP) && pos.y < boundary_top) { dirVector.y = 1; }
 
-        if (keysPressed(MOVE_UP) && (pos.y + speed) < boundary_top) {
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed, 0); 
-        }
+        if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (keysPressed(MOVE_DOWN) && (pos.y + speed) > boundary_bottom) {
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed, 0);
-        }
+        if (Input.GetKeyUp(SHOOT)) { Instantiate(bullet, transform.position, Quaternion.identity); }
 
-        if (Input.GetKeyUp(SHOOT))
-        {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-        }
-        
-        
-
-        lastPos = transform.position;
+        rb.velocity = dirVector.normalized * speed;
+        dirVector = Vector3.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
