@@ -10,6 +10,7 @@ public class EventLogger
     private static EventLogger instance = null;
 
     private List<EventLog> logs;
+    private List<EventLog> fpsLogs;
 
     public string gameName = "Game";
 
@@ -25,6 +26,7 @@ public class EventLogger
     private EventLogger()
     {
         logs = new List<EventLog>();
+        fpsLogs = new List<EventLog>();
         gameName = "Game-" + UnityEngine.Random.Range(0, 9999);
     }
 
@@ -39,10 +41,16 @@ public class EventLogger
         AddLog(new EventLog(message));
     }
 
+    public static void LogFps(float fps)
+    {
+        singleton().fpsLogs.Add(new EventLog(fps.ToString()));
+        singleton().WriteFpsToFile();
+    }
+
     public static void AddLog(EventLog log)
     {
         singleton().logs.Add(log);
-        singleton().WriteToFile();
+        singleton().WriteLogsToFile();
     }
 
     public void DebugPrint()
@@ -53,21 +61,28 @@ public class EventLogger
         }
     }
 
-    public void WriteToFile()
+    public void WriteLogsToFile()
+    {
+        WriteFile("log", logs);
+    }
+
+    public void WriteFpsToFile()
+    {
+        WriteFile("fps", fpsLogs);
+    }
+
+    public void WriteFile(string fileNameAppend, List<EventLog> logList)
     {
         string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-        string filePath = Path.Combine(desktopPath, gameName + "-log.txt");
-        
+        string filePath = Path.Combine(desktopPath, gameName + "-" + fileNameAppend + ".txt");
+
         using (StreamWriter file = new StreamWriter(filePath, false))
         {
-            foreach (EventLog log in logs)
+            foreach (EventLog log in logList)
             {
                 file.WriteLine(log.ToString());
             }
         }
-
-
-
     }
 
 }
