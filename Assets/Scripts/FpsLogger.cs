@@ -10,26 +10,15 @@ public class FpsLogger : MonoBehaviour
     private float msec;
     private float fps;
     private string text;
-    private List<string> fpsData = new List<string>();
 
     void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
         msec = deltaTime * 1000.0f;
         fps = 1.0f / deltaTime;
-        text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
-        fpsData.Add(text);
+        EventLogger.LogFps(fps);
     }
 
-    public void FpsToFile()
-    {
-        //TODO: specify file destination
-
-        string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-        System.IO.File.WriteAllLines(path + "/test.txt", fpsData);
-
-        Debug.Log(path);
-    }
 
     /*void OnGUI()
     {
