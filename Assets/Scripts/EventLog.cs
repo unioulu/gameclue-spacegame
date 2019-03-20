@@ -15,6 +15,8 @@ public class EventLog {
         public const string damage = "PlayerDamage";
         public static string EnemyDamage(string enemyId) { return "EnemyDamage " + enemyId; }
         public static string EnemyCreated(string enemyId) { return "EnemyCreated " + enemyId; }
+
+        public const string quit = "GameQuit";
     }
 
     public string message { private set; get; }

@@ -42,7 +42,7 @@ public class GameSceneController : MonoBehaviour
             cam.transform.position = new Vector3(Random.Range(-shakeOffset, shakeOffset), Random.Range(-shakeOffset, shakeOffset), cam.transform.position.z);
             if (Time.unscaledTime - lastEscapePress > quitDelay)
             {
-                Debug.Log("Quit");
+                EventLogger.Log(EventLog.EventCode.quit);
                 Application.Quit();
             }
         }
