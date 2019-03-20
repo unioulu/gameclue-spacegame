@@ -25,9 +25,10 @@ public class DebrisBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Bullet(Clone)")
+        if (other.tag == "Bullet")
         {
-            health--;
+            int dmg = other.gameObject.GetComponent<Bullet>().damage;
+            health -= dmg;
         }
     }
 }

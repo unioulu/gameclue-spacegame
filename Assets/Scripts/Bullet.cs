@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
+    public int damage = 1;
 
     private Rigidbody2D rb;
 
@@ -24,7 +25,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == "Asteroid(Clone)") { Destroy(gameObject); }
-
+        if(other.tag == "Enemy") { Destroy(gameObject); }
     }
 }

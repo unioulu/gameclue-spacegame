@@ -6,7 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject chargeBullet;
+
     public float speed = 0.1f;
+
+    public int chargeTime = 1;
+    private float charge;
     
     public float hitCooldown = 2f;
     private float currHitCooldown;
@@ -50,7 +55,16 @@ public class PlayerController : MonoBehaviour
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (Input.GetKeyUp(SHOOT)) { Instantiate(bullet, transform.position, Quaternion.identity); }
+        if (Input.GetKey(SHOOT)){ charge += Time.deltaTime; }
+        if (Input.GetKeyUp(SHOOT))
+        {
+            if(charge > chargeTime)
+                Instantiate(chargeBullet, transform.position, Quaternion.identity);
+            else
+                Instantiate(bullet, transform.position, Quaternion.identity);
+
+            charge = 0;
+        }
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
