@@ -11,6 +11,8 @@ public class EventLogger
 
     private List<EventLog> logs;
 
+    public string gameName = "Game";
+
     static EventLogger singleton()
     {
         if (instance == null)
@@ -23,8 +25,14 @@ public class EventLogger
     private EventLogger()
     {
         logs = new List<EventLog>();
+        gameName = "Game-" + UnityEngine.Random.Range(0, 9999);
     }
 
+
+    public static void SetName(string name)
+    {
+        singleton().gameName = name;
+    }
 
     public static void Log(string message)
     {
@@ -34,6 +42,7 @@ public class EventLogger
     public static void AddLog(EventLog log)
     {
         singleton().logs.Add(log);
+        singleton().WriteToFile();
     }
 
     public void DebugPrint()
@@ -47,7 +56,7 @@ public class EventLogger
     public void WriteToFile()
     {
         string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-        string filePath = Path.Combine(desktopPath, "log.txt");
+        string filePath = Path.Combine(desktopPath, gameName + "-log.txt");
         
         using (StreamWriter file = new StreamWriter(filePath, false))
         {
