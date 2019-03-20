@@ -6,8 +6,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject chargeBullet;
 
     public float speed = 0.1f;
+
+    public int chargeTime = 1;
+    private float charge;
+    
+    public float hitCooldown = 2f;
+    private float currHitCooldown;
+
+    public int health = 3;
+    public Texture2D texture;
+    public int textureSize = 50;
+    public int texturePadding = 4;
+
+    private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -24,6 +38,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
     }
 
@@ -31,38 +46,52 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        if (keysPressed(MOVE_LEFT) && (pos.x + speed) > boundary_left) {
-            transform.position = new Vector3(transform.position.x - speed, transform.position.y, 0);
-        }
+        Vector3 dirVector = Vector3.zero;
+        if (keysPressed(MOVE_LEFT) && pos.x > boundary_left) { dirVector.x = -1; }
 
-        if (keysPressed(MOVE_RIGHT) && (pos.x + speed) < boundary_right) {
-            transform.position = new Vector3(transform.position.x + speed, transform.position.y, 0);
-        }
+        if (keysPressed(MOVE_RIGHT) && pos.x < boundary_right) { dirVector.x = 1; }
 
-        //pos = transform.position;
+        if (keysPressed(MOVE_UP) && pos.y < boundary_top) { dirVector.y = 1; }
 
-        if (keysPressed(MOVE_UP) && (pos.y + speed) < boundary_top) {
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed, 0); 
-        }
+        if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (keysPressed(MOVE_DOWN) && (pos.y + speed) > boundary_bottom) {
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed, 0);
-        }
-
-        if (Input.GetKeyDown(SHOOT))
+        if (Input.GetKey(SHOOT)){ charge += Time.deltaTime; }
+        if (Input.GetKeyUp(SHOOT))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            if(charge > chargeTime)
+                Instantiate(chargeBullet, transform.position, Quaternion.identity);
+            else
+                Instantiate(bullet, transform.position, Quaternion.identity);
+
+            charge = 0;
         }
-        
-        lastPos = transform.position;
+
+        rb.velocity = dirVector.normalized * speed;
+        dirVector = Vector3.zero;
+
+        currHitCooldown -= Time.deltaTime;
+        if (currHitCooldown < 0)
+            currHitCooldown = 0;
+
+    }
+
+    private void OnGUI()
+    {
+        for (int i = 0; i < health; i++)
+        {
+            GUI.DrawTexture(new Rect(texturePadding + i * textureSize, Screen.height - textureSize - texturePadding, textureSize, textureSize), texture);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
+        if (other.gameObject.tag == "Enemy" && currHitCooldown <= 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            health--;
+            if (health == 0)
+                SceneManager.LoadScene("SampleScene");
+            currHitCooldown = hitCooldown;
         }
     }
 
