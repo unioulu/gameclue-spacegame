@@ -9,11 +9,14 @@ public class Coin : MonoBehaviour
 
     public CoinHandler CoinHandler { set; private get; }
 
+    private Audiobank ab;
+    private GameObject soundManagerInstance;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        ab = gameObject.GetComponent<Audiobank>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -29,7 +32,10 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             CoinHandler.SetScore(scoreValue);
+
+            ab.PlayOnce();
             Destroy(gameObject);
+            
         }
     }
 }

@@ -6,6 +6,7 @@ public class CoinHandler : MonoBehaviour
 {
     public GameObject coinPrefab;
     public GameObject negCoinPrefab;
+
     public float speed = 0.1f;
     public int coinSpawnRate = 8;
     public int negCoinSpawnRate = 10;
