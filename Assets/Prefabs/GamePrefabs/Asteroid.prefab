@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 8032413818210250047}
   - component: {fileID: 8032413818210251457}
   - component: {fileID: 8032413818210251456}
-  - component: {fileID: 4672759823804692339}
   - component: {fileID: 5395343282065131721}
+  - component: {fileID: 3157312719937231442}
+  - component: {fileID: 3997048713177525460}
+  - component: {fileID: 5411159408911681775}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -103,21 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4672759823804692339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8032413818210250046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6112b5d07b4c48768135a74d7f95fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.86
-  health: 3
-  debris: {fileID: 8032413818210250046, guid: e7d58b941e27a44968e0038fd7f39377, type: 3}
 --- !u!58 &5395343282065131721
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +121,49 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.099999994
+--- !u!114 &3157312719937231442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900095d93dda9664ba41506d66a7d7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisPrefab: {fileID: 4256275516470018468, guid: e7d58b941e27a44968e0038fd7f39377,
+    type: 3}
+  debrisSpread: 0.5
+  debrisAngle: 0.5
+  maxHealth: 3
+--- !u!114 &3997048713177525460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c124b977672c649849a92c0ad0369d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8032413818210251456}
+  speed: 0.8
+  angle: 0
+--- !u!114 &5411159408911681775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccec52f78961e6b42a8d080163a2eb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  distance: 15
