@@ -1,0 +1,2 @@
+player_shoot: djfroyd cca
+player_death: originalmaja cca

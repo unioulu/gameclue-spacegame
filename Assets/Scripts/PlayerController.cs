@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public int texturePadding = 4;
 
     private Rigidbody2D rb;
+    private Audiobank ab;
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
+        ab = this.GetComponent<Audiobank>();
     }
 
     // Update is called once per frame
@@ -61,7 +63,10 @@ public class PlayerController : MonoBehaviour
             if(charge > chargeTime)
                 Instantiate(chargeBullet, transform.position, Quaternion.identity);
             else
+            {
                 Instantiate(bullet, transform.position, Quaternion.identity);
+                ab.PlayOnce();
+            }
 
             charge = 0;
         }
