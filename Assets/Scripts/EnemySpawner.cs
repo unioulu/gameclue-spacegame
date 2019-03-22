@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= enemySpawnRate)
         {
-            GameObject prefab = enemyPrefabs[3];//Random.Range((int)0, (int)enemyPrefabs.Length)];
+            GameObject prefab = enemyPrefabs[1];//Random.Range((int)0, (int)enemyPrefabs.Length)];
             Instantiate(prefab, transform.position, Quaternion.identity);
             spawnTimer = 0;
             enemySpawnRate = RandomSpawnrate();
