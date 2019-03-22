@@ -13,10 +13,6 @@ public class StraightMovement : MonoBehaviour {
     SetSpeedAndAngle(speed, angle);
   }
 
-  void Update() {
-
-  }
-
   public void SetSpeedAndAngle(float speed, float angle) {
         this.speed = speed;
         this.angle = angle;
