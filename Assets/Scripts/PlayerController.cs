@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     public int texturePadding = 4;
 
     private Rigidbody2D rb;
-    private Audiobank ab;
     private Vector3 lastPos;
     private float boundary_left = -10f;
     private float boundary_right = 10f;
@@ -35,13 +34,15 @@ public class PlayerController : MonoBehaviour
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
     private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
+    public Audiobank deathSound = null;
+    public Audiobank shootSound = null;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
-        ab = this.GetComponent<Audiobank>();
     }
 
     // Update is called once per frame
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);
-                ab.PlayOnce();
+                shootSound.PlayOnce();
             }
 
             charge = 0;
@@ -95,7 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             if (health == 0)
+            {
+                deathSound.PlayOnce();
                 SceneManager.LoadScene("SampleScene");
+            }
             currHitCooldown = hitCooldown;
         }
     }
