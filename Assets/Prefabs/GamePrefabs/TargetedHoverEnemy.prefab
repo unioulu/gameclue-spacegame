@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7793670906595527792}
   - component: {fileID: 7793670906595527793}
   - component: {fileID: 5025114055344039862}
+  - component: {fileID: 6721590504750870023}
   m_Layer: 0
   m_Name: TargetedHoverEnemy
   m_TagString: Enemy
@@ -141,3 +142,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b966a992ba1404aa339e0f3c7929c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetCenterPosition: {x: 0, y: 0, z: 0}
+  hoverRadius: 3
+  speed: 1
+--- !u!114 &6721590504750870023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793670906595527795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309c2ef247439214b95fa2a3af65c4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {x: 0, y: 0, z: 0}
+  targetRadius: 0
+  speed: 0.8
+  rotateSpeed: 6

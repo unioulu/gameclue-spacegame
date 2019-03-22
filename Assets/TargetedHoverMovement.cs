@@ -9,17 +9,25 @@ public class TargetedHoverMovement : MonoBehaviour
     public float hoverRadius = 3f;
     public float speed = 1;
     private Rigidbody2D rb;
+    private HoverMovement hoverMovement;
 
     void Awake()
     {
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
-        this.targetLeftCenterPosition = targetCenterPosition - new Vector3(-hoverRadius,0,0);
+        
+    }
+
+    void Start()
+    {
+        this.hoverMovement = this.gameObject.GetComponent<HoverMovement>();
+        this.hoverMovement.enabled = false;
     }
 
     void Update()
     {
         if (!IsAtTarget())
         {
+            this.targetLeftCenterPosition = targetCenterPosition - new Vector3(-hoverRadius, 0, 0);
             Vector3 currentPosition = this.transform.position;
             Vector3 direction = targetLeftCenterPosition - currentPosition;
             direction = direction.normalized;
@@ -28,11 +36,14 @@ public class TargetedHoverMovement : MonoBehaviour
         }
         else
         {
+            // Activate HoverMovement
             this.rb.velocity = Vector3.zero;
-            // Activate hover movement
-            // HoverMovement hoverMovement = this.gameObject.GetComponent<HoverMovement>();
-            // hoverMovement.setHover(center);
-            // this.enabled = false;
+            hoverMovement.setTargetPoint(targetCenterPosition);
+            hoverMovement.setTargetRadius(this.hoverRadius);
+
+            this.enabled = false;
+            hoverMovement.enabled = true;
+ 
         }
     }
 

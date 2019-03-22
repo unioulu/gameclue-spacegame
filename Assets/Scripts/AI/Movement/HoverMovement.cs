@@ -2,31 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoverMovement : MonoBehaviour {
+public class HoverMovement : MonoBehaviour
+{
+    private Rigidbody2D rigidbody;
+    public Vector3 targetPoint;
+    public float targetRadius;
+    public float speed = 1;
+    private float rotateSpeed = 3f;
+    private float angle = 0;
+    
 
-    public Vector3 hoverPosition = Vector3.zero;
-
-    [SerializeField]
-    private Rigidbody2D rb;
-
-    public float rotationSpeed = 10f;
-    public float speed = 0.8f;
-
-    // Start is called before the first frame update
-    void Start() {
-        rb.velocity = new Vector3(0f, -speed, 0f);
+    void Start()
+    {
+        this.rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
+        this.angle = Vector3.SignedAngle(Vector3.right, transform.position - targetPoint, Vector3.forward);
+        this.angle = this.angle * Mathf.Deg2Rad;
     }
 
-    // Update is called once per frame
-    void Update() {
-
-        Vector3 targetVector = hoverPosition - transform.position;
-        targetVector = targetVector.normalized * speed;
-
-        Vector3 newVector = Vector3.RotateTowards(new Vector3(rb.velocity.x, rb.velocity.y, 0f), targetVector, rotationSpeed, 1f);
-        rb.velocity = newVector;
-
-        Debug.Log(transform.position + " ** " + rb.velocity + " ** " + newVector + " ** " + targetVector);
-
+    void Update()
+    {
+        this.angle = angle + rotateSpeed * Time.deltaTime;
+        Vector3 offset = new Vector3(Mathf.Cos(this.angle), Mathf.Sin(this.angle), 0) * targetRadius;
+        transform.position = targetPoint + offset;
     }
+
+    public void setTargetPoint(Vector3 targetPoint)
+    {
+        this.targetPoint = targetPoint;
+    }
+
+    public void setTargetRadius(float targetRadius)
+    {
+        this.targetRadius = targetRadius;
+    }
+
 }
