@@ -11,17 +11,14 @@ public class EnemyShooting : MonoBehaviour
 
     public AngleSelector selector;
 
-    private GameObject player;
     private GameObject bulletInstance;
-    private Rigidbody2D rb;
 
     private float shootTimer;
 
     // Start is called before the first frame update
     void Awake()
     {
-        player = GameObject.FindWithTag("Player");
-        rb = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame

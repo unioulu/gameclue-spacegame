@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3386544113522415694}
   - component: {fileID: 3386544113522415695}
   - component: {fileID: 3386544113522415693}
+  - component: {fileID: 4093697951472822062}
+  - component: {fileID: 3119546091698138272}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -93,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e9f1cabc2783e4e938b9f3eedc6073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selector: {fileID: 3386544113529342377}
+  selector: {fileID: 3119546091698138272}
 --- !u!50 &3386544113522415693
 Rigidbody2D:
   serializedVersion: 4
@@ -115,6 +117,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4093697951472822062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113522415689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4006a4c10326640db8b7da917522dd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1816670526083997164, guid: 791621ad908474d68bcc8b62d5afd2b1,
+    type: 3}
+  shootCooldown: 2
+  bulletSpeed: 4
+  selector: {fileID: 3119546091698138272}
+--- !u!114 &3119546091698138272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113522415689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa55751fb6563745b391abc03d866cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
 --- !u!1 &3386544113529342388
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +159,6 @@ GameObject:
   - component: {fileID: 3386544113529342381}
   - component: {fileID: 3386544113529342382}
   - component: {fileID: 3386544113529342383}
-  - component: {fileID: 3386544113529342376}
-  - component: {fileID: 3386544113529342377}
   - component: {fileID: 3386544113529342378}
   - component: {fileID: 3386544113529342379}
   m_Layer: 0
@@ -248,36 +278,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &3386544113529342376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3386544113529342388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4006a4c10326640db8b7da917522dd26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1816670526083997164, guid: 791621ad908474d68bcc8b62d5afd2b1,
-    type: 3}
-  shootCooldown: 2
-  bulletSpeed: 4
-  selector: {fileID: 3386544113529342377}
---- !u!114 &3386544113529342377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3386544113529342388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa55751fb6563745b391abc03d866cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
 --- !u!114 &3386544113529342378
 MonoBehaviour:
   m_ObjectHideFlags: 0
