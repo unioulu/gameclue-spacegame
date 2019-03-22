@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class StraightMovement : MonoBehaviour {
+public class StraightMovement : MonoBehaviour
+{
 
   [SerializeField]
   private Rigidbody2D rb;
