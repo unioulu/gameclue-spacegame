@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8032413818210251457}
   - component: {fileID: 8032413818210251456}
   - component: {fileID: 5395343282065131721}
-  - component: {fileID: 2206374744496687463}
+  - component: {fileID: 5060410619412948330}
+  - component: {fileID: 4256275516470018468}
+  - component: {fileID: 9101926446218528587}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Enemy
@@ -119,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.099999994
---- !u!114 &2206374744496687463
+--- !u!114 &5060410619412948330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,8 +130,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 8032413818210250046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f9efa44497c4c5ca8f7d7190417c19, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b268c5345666e242ae690025a9339eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 3
+--- !u!114 &4256275516470018468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c124b977672c649849a92c0ad0369d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8032413818210251456}
   speed: 0.8
-  health: 1
+  angle: 0
+--- !u!114 &9101926446218528587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccec52f78961e6b42a8d080163a2eb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  distance: 15

@@ -13,18 +13,17 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector3(0, speed, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(0, speed, 0);
-
-        if (transform.position.y > 5f) { Destroy(gameObject); }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy") { Destroy(gameObject); }
+        if (other.tag == "Enemy") { Destroy(gameObject); }
     }
 }
