@@ -5,13 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject bullet;
-    public GameObject chargeBullet;
-
     public float speed = 0.1f;
-
-    public int chargeTime = 1;
-    private float charge;
     
     public float hitCooldown = 2f;
     private float currHitCooldown;
@@ -21,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public int textureSize = 50;
     public int texturePadding = 4;
 
+    public ParticleSystem chargeParticles;
+
     private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
@@ -28,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private float boundary_top = 4f;
     private float boundary_bottom = -4f;
 
-    private KeyCode SHOOT = KeyCode.Space;
     private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
     private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
@@ -40,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
+        chargeParticles.Stop();
     }
 
     // Update is called once per frame
@@ -54,17 +50,6 @@ public class PlayerController : MonoBehaviour
         if (keysPressed(MOVE_UP) && pos.y < boundary_top) { dirVector.y = 1; }
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
-
-        if (Input.GetKey(SHOOT)){ charge += Time.deltaTime; }
-        if (Input.GetKeyUp(SHOOT))
-        {
-            if(charge > chargeTime)
-                Instantiate(chargeBullet, transform.position, Quaternion.identity);
-            else
-                Instantiate(bullet, transform.position, Quaternion.identity);
-
-            charge = 0;
-        }
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
