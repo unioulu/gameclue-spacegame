@@ -5,13 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject bullet;
-    public GameObject chargeBullet;
-
     public float speed = 0.1f;
-
-    public int chargeTime = 1;
-    private float charge;
     
     public float hitCooldown = 2f;
     private float currHitCooldown;
@@ -30,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private float boundary_top = 4f;
     private float boundary_bottom = -4f;
 
-    private KeyCode SHOOT = KeyCode.Space;
     private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
     private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
@@ -57,20 +50,6 @@ public class PlayerController : MonoBehaviour
         if (keysPressed(MOVE_UP) && pos.y < boundary_top) { dirVector.y = 1; }
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
-
-        if (Input.GetKey(SHOOT)){
-            charge += Time.deltaTime;
-            chargeParticles.Play();
-        }
-        if (Input.GetKeyUp(SHOOT))
-        {
-            if(charge > chargeTime)
-                Instantiate(chargeBullet, transform.position, Quaternion.identity);
-            else
-                Instantiate(bullet, transform.position, Quaternion.identity);
-            chargeParticles.Stop();
-            charge = 0;
-        }
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
