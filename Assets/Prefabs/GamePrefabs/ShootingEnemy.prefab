@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3386544113522415689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 3386544113529342380}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: eae391dfc88744e4896543fca0ad0236, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 799e5fcc41d7842478e2cb977a706099, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,6 +134,9 @@ MonoBehaviour:
   shootCooldown: 2
   bulletSpeed: 4
   selector: {fileID: 3119546091698138272}
+  idleSprite: {fileID: 21300000, guid: 799e5fcc41d7842478e2cb977a706099, type: 3}
+  prepareSprite: {fileID: 21300000, guid: 306d26dab8f0b4be991238033ce359f6, type: 3}
+  shootSprite: {fileID: 21300000, guid: 4e4f3a73e98ed4bd886fba7887876a33, type: 3}
 --- !u!114 &3119546091698138272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +164,7 @@ GameObject:
   - component: {fileID: 3386544113529342383}
   - component: {fileID: 3386544113529342378}
   - component: {fileID: 3386544113529342379}
+  - component: {fileID: 8851986943284912623}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Enemy
@@ -307,3 +311,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   distance: 20
+--- !u!114 &8851986943284912623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113529342388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b268c5345666e242ae690025a9339eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3

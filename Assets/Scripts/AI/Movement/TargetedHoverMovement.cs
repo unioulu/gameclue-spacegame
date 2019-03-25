@@ -38,8 +38,8 @@ public class TargetedHoverMovement : MonoBehaviour
         {
             // Activate HoverMovement
             this.rb.velocity = Vector3.zero;
-            hoverMovement.setTargetPoint(targetCenterPosition);
-            hoverMovement.setTargetRadius(this.hoverRadius);
+            hoverMovement.SetTargetPoint(targetCenterPosition);
+            hoverMovement.SetTargetRadius(this.hoverRadius);
 
             this.enabled = false;
             hoverMovement.enabled = true;
