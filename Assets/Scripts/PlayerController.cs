@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public int textureSize = 50;
     public int texturePadding = 4;
 
+    public ParticleSystem chargeParticles;
+
     private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
+        chargeParticles.Stop();
     }
 
     // Update is called once per frame
@@ -55,14 +58,17 @@ public class PlayerController : MonoBehaviour
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (Input.GetKey(SHOOT)){ charge += Time.deltaTime; }
+        if (Input.GetKey(SHOOT)){
+            charge += Time.deltaTime;
+            chargeParticles.Play();
+        }
         if (Input.GetKeyUp(SHOOT))
         {
             if(charge > chargeTime)
                 Instantiate(chargeBullet, transform.position, Quaternion.identity);
             else
                 Instantiate(bullet, transform.position, Quaternion.identity);
-
+            chargeParticles.Stop();
             charge = 0;
         }
 
