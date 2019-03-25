@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCenterPosition: {x: 0, y: 0, z: 0}
   hoverRadius: 3
-  speed: 1
+  speed: 5
 --- !u!114 &6721590504750870023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +159,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPoint: {x: 0, y: 0, z: 0}
   targetRadius: 0
-  speed: 0.8
-  rotateSpeed: 6
+  speed: 5

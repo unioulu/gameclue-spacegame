@@ -37,7 +37,7 @@ public class HoverMovement : MonoBehaviour
     {
         this.targetRadius = targetRadius;
         float circumference = targetRadius * 2 * Mathf.PI;
-        float framesForCircuit = (circumference / speed) * 60f;
+        float framesForCircuit = (circumference / speed);
         rotateSpeed = (Mathf.PI * 2) / framesForCircuit;
     }
 
