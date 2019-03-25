@@ -24,8 +24,8 @@ public class HoverMovement : MonoBehaviour
         this.angle = angle + rotateSpeed * Time.deltaTime;
         Vector3 offset = new Vector3(Mathf.Cos(this.angle), Mathf.Sin(this.angle), 0) * targetRadius;
         Vector3 pointInCircle = targetPoint + offset;
-        transform.position = pointInCircle;
-        //rigidbody.velocity = pointInCircle - this.transform.position;
+        //transform.position = pointInCircle;
+        rigidbody.velocity = pointInCircle - this.transform.position;
     }
 
     public void SetTargetPoint(Vector3 targetPoint)
@@ -37,7 +37,7 @@ public class HoverMovement : MonoBehaviour
     {
         this.targetRadius = targetRadius;
         float circumference = targetRadius * 2 * Mathf.PI;
-        float framesForCircuit = (circumference / speed) * 60f;
+        float framesForCircuit = (circumference / speed);
         rotateSpeed = (Mathf.PI * 2) / framesForCircuit;
     }
 
