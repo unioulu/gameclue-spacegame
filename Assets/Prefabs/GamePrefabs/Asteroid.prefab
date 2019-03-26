@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 3157312719937231442}
   - component: {fileID: 3997048713177525460}
   - component: {fileID: 5411159408911681775}
-  - component: {fileID: 5823396059761458759}
-  - component: {fileID: 4030118398960618098}
+  - component: {fileID: 99758199062251542}
+  - component: {fileID: 3814220568006537023}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 8032413818210250046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,11 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1680558009
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.654902, g: 0.3139122, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 04901c29a3157a44097e5cc7ee740991, type: 3}
+  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -120,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.10590148, y: 0}
   serializedVersion: 2
-  m_Radius: 0.099999994
+  m_Radius: 0.7772763
 --- !u!114 &3157312719937231442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  enemyDeathSound: {fileID: 5823396059761458759}
-  enemyHitSound: {fileID: 4030118398960618098}
+  enemyDeathSound: {fileID: 99758199062251542}
+  enemyHitSound: {fileID: 3814220568006537023}
   debrisPrefab: {fileID: 4256275516470018468, guid: e7d58b941e27a44968e0038fd7f39377,
     type: 3}
   debrisSpread: 0.5
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   distance: 15
---- !u!114 &5823396059761458759
+--- !u!114 &99758199062251542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
---- !u!114 &4030118398960618098
+--- !u!114 &3814220568006537023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
