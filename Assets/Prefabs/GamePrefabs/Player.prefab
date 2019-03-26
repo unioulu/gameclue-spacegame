@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4776290598083304539}
   - component: {fileID: 753087437687507225}
   - component: {fileID: 1180791100026137741}
+  - component: {fileID: 6986421383620061517}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -114,6 +115,7 @@ MonoBehaviour:
   shootSound: {fileID: 4355015923014931733}
   chargeSound: {fileID: 753087437687507225}
   chargeReadySound: {fileID: 1180791100026137741}
+  chargeShotSound: {fileID: 6986421383620061517}
 --- !u!50 &8804307249713526966
 Rigidbody2D:
   serializedVersion: 4
@@ -226,3 +228,18 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: c4a13f02265ef4cfc831341bb866e34b, type: 3}
+--- !u!114 &6986421383620061517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804307249713526965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 97c060ac20e15490fb56cfe3f96ac2de, type: 3}

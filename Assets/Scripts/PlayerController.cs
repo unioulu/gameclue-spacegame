@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     public Audiobank shootSound = null;
     public Audiobank chargeSound = null;
     public Audiobank chargeReadySound = null;
+    public Audiobank chargeShotSound = null;
     private bool playloop = true;
 
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
             if (charge > chargeTime)
             {
                 Instantiate(chargeBullet, transform.position, Quaternion.identity);
+                chargeShotSound.PlayOnce();
             }
             else
             {
