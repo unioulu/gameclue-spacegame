@@ -17,15 +17,33 @@ public class EnemySpawner : MonoBehaviour
 
     private float spawnTimer;
 
+    public EnemySpawnList spawnList;
+    public float lastSpawnTime = 0f;
+    private EnemySpawnListItem nextSpawn = null;
+
     // Start is called before the first frame update
     void Start()
     {
         Random.InitState(seed);
+        spawnTimer = 0;
+        spawnList.GenerateRandomly();
+        nextSpawn = spawnList.NextItemAtTime(spawnTimer);
     }
 
     // Update is called once per frame
     void Update()
     {
+        spawnTimer += Time.deltaTime;
+
+        Debug.Log(spawnTimer + " " + nextSpawn.time);
+
+        if (spawnTimer > nextSpawn.time)
+        {
+            GameObject.Instantiate(nextSpawn.enemyData.prefab, new Vector3(nextSpawn.spawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
+            nextSpawn = spawnList.NextItemAtTime(spawnTimer + 0.001f);
+        }
+
+        /*
         if (transform.position.x < boundary_left || transform.position.x > boundary_right) { direction = !direction; }
 
         if (direction) { transform.Translate(new Vector3(speed,0,0)); }
@@ -39,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
             spawnTimer = 0;
             enemySpawnRate = RandomSpawnrate();
         }
-
+        */
     }
 
     float RandomSpawnrate()
