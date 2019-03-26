@@ -104,7 +104,7 @@ MonoBehaviour:
   chargeBullet: {fileID: 1816670526083997164, guid: b2ba54d81850644b9a8b6f9ae414f977,
     type: 3}
   speed: 7
-  chargeTime: 1
+  chargeTime: 2.4
   hitCooldown: 2
   health: 3
   texture: {fileID: 2800000, guid: eec844d74ba134626afd9dc284f724a1, type: 3}
