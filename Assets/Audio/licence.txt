@@ -1,3 +1,5 @@
 player_shoot: djfroyd cca
 player_death: originalmaja cca
 bullet_charge: LiamG_SFX cca
+negative_pickup: afleetingspeck cc0
+positive_pickup: shinephoenixstormcrow cca

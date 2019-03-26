@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
-  audioClip: {fileID: 8300000, guid: 482cacb30d5df4b318eafd9dd561e7a3, type: 3}
+  audioClip: {fileID: 8300000, guid: aa5cce282dbd94a3ca390b040c280183, type: 3}
