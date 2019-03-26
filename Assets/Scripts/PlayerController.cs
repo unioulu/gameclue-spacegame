@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 0.1f;
 
-    public int chargeTime = 1;
+    public float chargeTime = 1;
     private float charge;
     
     public float hitCooldown = 2f;
@@ -34,8 +34,13 @@ public class PlayerController : MonoBehaviour
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
     private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
+    // Audio stuff
     public Audiobank deathSound = null;
+    public Audiobank hitSound = null;
     public Audiobank shootSound = null;
+    public Audiobank chargeSound = null;
+    public Audiobank chargeReadySound = null;
+    private bool playloop = true;
 
 
     // Start is called before the first frame update
@@ -58,18 +63,33 @@ public class PlayerController : MonoBehaviour
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (Input.GetKey(SHOOT)){ charge += Time.deltaTime; }
+        if (Input.GetKeyDown(SHOOT)){ chargeSound.PlayOnce(); }
+        if (Input.GetKey(SHOOT))
+        { 
+            charge += Time.deltaTime;
+            if (charge > chargeTime && playloop)
+            {
+                // Play looping sound here
+                chargeReadySound.PlayLoop();
+                playloop = false;
+            }
+        }
         if (Input.GetKeyUp(SHOOT))
         {
-            if(charge > chargeTime)
+            if (charge > chargeTime)
+            {
                 Instantiate(chargeBullet, transform.position, Quaternion.identity);
+            }
             else
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);
                 shootSound.PlayOnce();
             }
 
+            chargeSound.StopPlay();
+            chargeReadySound.StopPlay();
             charge = 0;
+            playloop = true;
         }
 
         rb.velocity = dirVector.normalized * speed;
@@ -100,6 +120,7 @@ public class PlayerController : MonoBehaviour
                 deathSound.PlayOnce();
                 SceneManager.LoadScene("SampleScene");
             }
+            hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
         }
     }

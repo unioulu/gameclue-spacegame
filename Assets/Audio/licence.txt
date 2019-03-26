@@ -1,2 +1,3 @@
 player_shoot: djfroyd cca
 player_death: originalmaja cca
+bullet_charge: LiamG_SFX cca
