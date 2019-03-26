@@ -161,7 +161,9 @@ GameObject:
   - component: {fileID: 3386544113529342383}
   - component: {fileID: 3386544113529342378}
   - component: {fileID: 3386544113529342379}
+  - component: {fileID: 7379580298800906016}
   - component: {fileID: 3632236405814582836}
+  - component: {fileID: 944532639111287842}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Enemy
@@ -308,6 +310,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   distance: 20
+--- !u!114 &7379580298800906016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113529342388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b268c5345666e242ae690025a9339eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  enemyDeathSound: {fileID: 3632236405814582836}
+  enemyHitSound: {fileID: 944532639111287842}
 --- !u!114 &3632236405814582836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,3 +340,18 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
+--- !u!114 &944532639111287842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113529342388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}

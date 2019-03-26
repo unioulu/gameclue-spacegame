@@ -8,19 +8,19 @@ public class Killable : MonoBehaviour
     protected int maxHealth = 3;
     protected int health;
 
-    private Audiobank ab;
+    public Audiobank enemyDeathSound;
+    public Audiobank enemyHitSound;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        ab = gameObject.GetComponent<Audiobank>();
     }
 
     void Update()
     {
         if (health <= 0) {
-            ab.PlayOnce();
+            enemyDeathSound.PlayOnce();
             Destroy(gameObject);
             OnDeath();
         }
@@ -30,6 +30,7 @@ public class Killable : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
+            enemyHitSound.PlayOnce();
             health -= other.gameObject.GetComponent<Bullet>().damage;
         }
     }

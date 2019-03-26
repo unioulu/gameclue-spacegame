@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2838009046906801384}
   - component: {fileID: 2838009046906801385}
   - component: {fileID: 2838009046906801390}
+  - component: {fileID: 1416595167715090945}
   - component: {fileID: 1402598975150087407}
   - component: {fileID: 4374613884301057072}
   m_Layer: 0
@@ -49,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b268c5345666e242ae690025a9339eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ab: {fileID: 0}
   maxHealth: 2
+  enemyDeathSound: {fileID: 4374613884301057072}
+  enemyHitSound: {fileID: 1416595167715090945}
 --- !u!114 &2838009046906801387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +152,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1416595167715090945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838009046906801391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}
 --- !u!114 &1402598975150087407
 MonoBehaviour:
   m_ObjectHideFlags: 0

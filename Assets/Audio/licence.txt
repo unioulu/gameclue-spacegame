@@ -1,5 +1,7 @@
 player_shoot: djfroyd cca
+player_hit: cyberios cc0
 player_death: originalmaja cca
+enemy_hit: unfa cca
 bullet_charge: LiamG_SFX cca
 negative_pickup: afleetingspeck cc0
 positive_pickup: shinephoenixstormcrow cca
