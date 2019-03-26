@@ -21,6 +21,7 @@ public class Audiobank : MonoBehaviour
     {
         smInstance = Instantiate(soundManager);
         ass = smInstance.GetComponent<AudioSource>();
+        ass.loop = true;
         ass.clip = audioClip;
         ass.Play();
     }
