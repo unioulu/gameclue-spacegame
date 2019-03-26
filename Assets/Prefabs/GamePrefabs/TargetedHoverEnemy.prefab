@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7793670906595527793}
   - component: {fileID: 5025114055344039862}
   - component: {fileID: 6721590504750870023}
+  - component: {fileID: 5423346418953667572}
   m_Layer: 0
   m_Name: TargetedHoverEnemy
   m_TagString: Enemy
@@ -117,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1680558009
-  m_SortingLayer: -3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.4076313, g: 0.8773585, b: 0.1448469, a: 1}
@@ -160,3 +161,16 @@ MonoBehaviour:
   targetPoint: {x: 0, y: 0, z: 0}
   targetRadius: 0
   speed: 5
+--- !u!114 &5423346418953667572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793670906595527795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b268c5345666e242ae690025a9339eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
