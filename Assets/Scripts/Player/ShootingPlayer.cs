@@ -6,23 +6,13 @@ public class ShootingPlayer : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
-
     public KeyCode shootKey = KeyCode.Space;
-
     public float maxKeyHoldTime = 1f;
-
     private float keyHoldTime = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKey(shootKey))
         {
             keyHoldTime += Time.deltaTime;
@@ -36,6 +26,5 @@ public class ShootingPlayer : MonoBehaviour
             }
             keyHoldTime = 0f;
         }
-
     }
 }
