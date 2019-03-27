@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public List<string> collisionTags = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy") { Destroy(gameObject); }
+        if (collisionTags.Contains(other.tag)) { Destroy(gameObject); }
     }
 }

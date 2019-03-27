@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1816670526083997165}
+  - component: {fileID: 7868898588773225999}
   - component: {fileID: 84068606796700755}
   - component: {fileID: 719575157318650661}
   - component: {fileID: 5190953454184486575}
@@ -17,7 +18,7 @@ GameObject:
   - component: {fileID: 2422001634687937133}
   m_Layer: 0
   m_Name: EnemyBullet
-  m_TagString: Enemy
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +37,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7868898588773225999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816670526083997164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f84f5a45f7b64d679c71324d4d294f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  damage: 1
+  collisionTags:
+  - Player
 --- !u!50 &84068606796700755
 Rigidbody2D:
   serializedVersion: 4

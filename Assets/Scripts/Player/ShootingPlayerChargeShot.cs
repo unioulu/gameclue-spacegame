@@ -70,36 +70,6 @@ public class ShootingPlayerChargeShot : MonoBehaviour
             charge = 0;
             playloop = true;
         }
-        /*
-        if (Input.GetKeyDown(SHOOT)) { chargeSound.PlayOnce(); }
-        if (Input.GetKey(SHOOT))
-        {
-            charge += Time.deltaTime;
-            if (charge > chargeTime && playloop)
-            {
-                // Play looping sound here
-                chargeReadySound.PlayLoop();
-                playloop = false;
-            }
-        }
-        if (Input.GetKeyUp(SHOOT))
-        {
-            if (charge > chargeTime)
-            {
-                Instantiate(chargeBullet, transform.position, Quaternion.identity);
-                chargeShotSound.PlayOnce();
-            }
-            else
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                shootSound.PlayOnce();
-            }
-
-            chargeSound.StopPlay();
-            chargeReadySound.StopPlay();
-            charge = 0;
-            playloop = true;
-        }*/
 
     }
 }

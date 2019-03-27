@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     public int textureSize = 50;
     public int texturePadding = 4;
 
-    public ParticleSystem chargeParticles;
-
     private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
@@ -34,12 +32,13 @@ public class PlayerController : MonoBehaviour
     public Audiobank deathSound = null;
     public Audiobank hitSound = null;
 
+    public List<string> damageTags = new List<string>();
+
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
-        chargeParticles.Stop();
     }
 
     void Update()
@@ -74,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy" && currHitCooldown <= 0)
+        if (damageTags.Contains(other.gameObject.tag) && currHitCooldown <= 0)
         {
             health--;
             if (health == 0)

@@ -4811,6 +4811,9 @@ MonoBehaviour:
   chargeParticles: {fileID: 0}
   deathSound: {fileID: 2773896401649063868}
   hitSound: {fileID: 2649069084142295400}
+  damageTags:
+  - Enemy
+  - EnemyBullet
 --- !u!114 &3908071053341652024
 MonoBehaviour:
   m_ObjectHideFlags: 0

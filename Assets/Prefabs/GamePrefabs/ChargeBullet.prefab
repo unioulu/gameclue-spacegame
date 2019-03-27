@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   damage: 3
+  collisionTags:
+  - Enemy
 --- !u!50 &84068606796700755
 Rigidbody2D:
   serializedVersion: 4
