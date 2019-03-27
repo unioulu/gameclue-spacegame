@@ -5,14 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject bullet;
-    public GameObject chargeBullet;
-
     public float speed = 0.1f;
 
-    public float chargeTime = 1;
-    private float charge;
-    
     public float hitCooldown = 2f;
     private float currHitCooldown;
 
@@ -20,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Texture2D texture;
     public int textureSize = 50;
     public int texturePadding = 4;
+
+    public ParticleSystem chargeParticles;
 
     private Rigidbody2D rb;
     private Vector3 lastPos;
@@ -44,14 +40,13 @@ public class PlayerController : MonoBehaviour
     private bool playloop = true;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
+        chargeParticles.Stop();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
@@ -66,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(SHOOT)){ chargeSound.PlayOnce(); }
         if (Input.GetKey(SHOOT))
-        { 
+        {
             charge += Time.deltaTime;
             if (charge > chargeTime && playloop)
             {
@@ -127,20 +122,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool keysPressed(List<KeyCode> keycodes) {
+    private bool keysPressed(List<KeyCode> keycodes)
+    {
         foreach (var keycode in keycodes)
         {
-            if (Input.GetKey(keycode)) {
+            if (Input.GetKey(keycode))
+            {
                 return true;
             }
         }
         return false;
     }
 
-    private bool keysPressed(KeyCode keycode) {
-        if (Input.GetKey(keycode)) {
+    private bool keysPressed(KeyCode keycode)
+    {
+        if (Input.GetKey(keycode))
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
