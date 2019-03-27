@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - SoundManager
   layers:
   - Default
   - TransparentFX
@@ -42,16 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BackgroundStars
-    uniqueID: 1948664541
-    locked: 0
-  - name: BulletLayer
-    uniqueID: 3256006473
-    locked: 0
-  - name: EnemyLayer
-    uniqueID: 1680558009
-    locked: 0
-  - name: PlayerLayer
-    uniqueID: 3682146981
     locked: 0

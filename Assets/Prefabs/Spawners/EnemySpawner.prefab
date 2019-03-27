@@ -41,14 +41,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00f9c0e2b6a1c4c8b9f39247c7c8aa5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 0.1
   enemySpawnRate: 4
   enemyPrefabs:
   - {fileID: 8032413818210250046, guid: d302ab025df2840299d78176a85df861, type: 3}
-  - {fileID: 3386544113529342388, guid: 1a9cde1ef0004463fbaef6dd7943801c, type: 3}
-  - {fileID: 3092629530811486982, guid: 30f6326dd92095147beaa8fdf93513ba, type: 3}
   - {fileID: 2838009046906801391, guid: 5957c94c363792d4496ac42c7cb58b95, type: 3}
-  - {fileID: 4247076794670210666, guid: e6456f8685930d147afd3ded24e90fc2, type: 3}
+  - {fileID: 7793670906595527795, guid: a0a4d5cb21bf2b541ada2ce8b1b7832a, type: 3}
+  - {fileID: 3386544113529342388, guid: 1a9cde1ef0004463fbaef6dd7943801c, type: 3}
   seed: 100

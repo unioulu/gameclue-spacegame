@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3157312719937231442}
   - component: {fileID: 3997048713177525460}
   - component: {fileID: 5411159408911681775}
+  - component: {fileID: 99758199062251542}
+  - component: {fileID: 3814220568006537023}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1680558009
-  m_SortingLayer: -3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04901c29a3157a44097e5cc7ee740991, type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
@@ -134,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  enemyDeathSound: {fileID: 99758199062251542}
+  enemyHitSound: {fileID: 3814220568006537023}
   debrisPrefab: {fileID: 4256275516470018468, guid: e7d58b941e27a44968e0038fd7f39377,
     type: 3}
   debrisSpread: 0.5
@@ -167,3 +171,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   distance: 15
+--- !u!114 &99758199062251542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
+--- !u!114 &3814220568006537023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032413818210250046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}

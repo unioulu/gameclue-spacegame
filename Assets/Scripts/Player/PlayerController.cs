@@ -24,10 +24,21 @@ public class PlayerController : MonoBehaviour
     private float boundary_top = 4f;
     private float boundary_bottom = -4f;
 
-    private List<KeyCode> MOVE_LEFT = new List<KeyCode>() { KeyCode.LeftArrow, KeyCode.J };
-    private List<KeyCode> MOVE_RIGHT = new List<KeyCode>() { KeyCode.RightArrow, KeyCode.L };
-    private List<KeyCode> MOVE_UP = new List<KeyCode>() { KeyCode.UpArrow, KeyCode.I };
-    private List<KeyCode> MOVE_DOWN = new List<KeyCode>() { KeyCode.DownArrow, KeyCode.K };
+    private KeyCode SHOOT = KeyCode.Space;
+    private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
+    private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
+    private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
+    private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
+
+    // Audio stuff
+    public Audiobank deathSound = null;
+    public Audiobank hitSound = null;
+    public Audiobank shootSound = null;
+    public Audiobank chargeSound = null;
+    public Audiobank chargeReadySound = null;
+    public Audiobank chargeShotSound = null;
+    private bool playloop = true;
+
 
     void Start()
     {
@@ -72,7 +83,11 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             if (health == 0)
+            {
+                deathSound.PlayOnce();
                 SceneManager.LoadScene("SampleScene");
+            }
+            hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
         }
     }

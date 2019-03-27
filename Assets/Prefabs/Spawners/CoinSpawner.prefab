@@ -47,6 +47,8 @@ MonoBehaviour:
     type: 3}
   negCoinPrefab: {fileID: 3649519080648097393, guid: 55ea4eb0762f840ffb00a4dffa1bb0ee,
     type: 3}
+  SoundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
   speed: 0.15
   coinSpawnRate: 7
   negCoinSpawnRate: 10
