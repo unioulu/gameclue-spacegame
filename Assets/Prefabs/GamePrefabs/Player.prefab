@@ -4864,6 +4864,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1816670526083997164, guid: 7e1f5396afafc41dcb91b64e22d1f141,
     type: 3}
   shootKey: 32
+  maxKeyHoldTime: 1
 --- !u!114 &3618208823571233273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4879,5 +4880,8 @@ MonoBehaviour:
   chargeBulletPrefab: {fileID: 1816670526083997164, guid: b2ba54d81850644b9a8b6f9ae414f977,
     type: 3}
   chargeTime: 1
+  bulletAmnt: 10
+  spreadAmnt: 0.1
+  particleStartDelay: 0.2
   chargeParticles: {fileID: 4505185072086076251}
   shootKey: 32

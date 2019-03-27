@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 84068606796700755}
   - component: {fileID: 719575157318650661}
   - component: {fileID: 5190953454184486575}
+  - component: {fileID: 2229441666764695862}
   m_Layer: 0
   m_Name: ChargeBullet
   m_TagString: Bullet
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f84f5a45f7b64d679c71324d4d294f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6
   damage: 3
 --- !u!50 &84068606796700755
 Rigidbody2D:
@@ -104,7 +105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1038960823
-  m_SortingLayer: -2
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8a7a17e5ccc30463c84a2c81ecc243aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,3 +144,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22751704, y: 0.19375843}
   m_EdgeRadius: 0
+--- !u!114 &2229441666764695862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816670526083997164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf8ea687c79f4e19bc93cd98a89095a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 84068606796700755}

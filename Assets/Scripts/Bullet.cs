@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public int damage = 1;
+    public float Angle { set; private get; } = 0.5f*Mathf.PI;
 
     private Rigidbody2D rb;
 
@@ -13,7 +14,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector3(0, speed, 0);
+        rb.velocity = new Vector3(Mathf.Cos(Angle),Mathf.Sin(Angle),0).normalized * speed;
     }
 
     // Update is called once per frame
