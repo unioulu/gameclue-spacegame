@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class EnemySpawnList : MonoBehaviour
 {
@@ -13,12 +14,6 @@ public class EnemySpawnList : MonoBehaviour
 
     public float minSpawnPosition = -7f;
     public float maxSpawnPosition = 7f;
-
-    public void LoadFromFile()
-    {
-        //TODO: Implement LoadFromFile
-        Debug.LogError("EnemySpawnList.LoadFromFile not implemented yet.");
-    }
 
     public void GenerateRandomly()
     {
@@ -64,6 +59,22 @@ public class EnemySpawnList : MonoBehaviour
         }
         Debug.LogError("EnemySpawnList NextItemAtTime failed to find an enemy to spawn at time " + originalTime);
         return null;
+    }
+
+    public void WriteToFile(string path)
+    {
+        StreamWriter file = new StreamWriter(path, false);
+
+        foreach (EnemySpawnListItem item in spawnList)
+        {
+            string line = item.time + "; " + item.spawnPosition + "; " + item.enemyData.id;
+            file.WriteLine(line);
+        }
+    }
+
+    public void LoadFromFile(string path)
+    {
+        Debug.LogError("EnemySpawnList LoadFromFile not implemented yet.");
     }
 
 }
