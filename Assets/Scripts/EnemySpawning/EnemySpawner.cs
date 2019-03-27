@@ -35,8 +35,6 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        Debug.Log(spawnTimer + " " + nextSpawn.time);
-
         if (spawnTimer > nextSpawn.time)
         {
             GameObject.Instantiate(nextSpawn.enemyData.prefab, new Vector3(nextSpawn.spawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
