@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1680558009
-  m_SortingLayer: -3
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 799e5fcc41d7842478e2cb977a706099, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -166,6 +166,8 @@ GameObject:
   - component: {fileID: 3386544113529342378}
   - component: {fileID: 3386544113529342379}
   - component: {fileID: 8851986943284912623}
+  - component: {fileID: 4386110123330431836}
+  - component: {fileID: 6400728359896991066}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Enemy
@@ -325,3 +327,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  enemyDeathSound: {fileID: 4386110123330431836}
+  enemyHitSound: {fileID: 6400728359896991066}
+--- !u!114 &4386110123330431836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113529342388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
+--- !u!114 &6400728359896991066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386544113529342388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}

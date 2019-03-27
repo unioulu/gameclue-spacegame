@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
-    
+
     public float hitCooldown = 2f;
     private float currHitCooldown;
 
@@ -24,13 +24,22 @@ public class PlayerController : MonoBehaviour
     private float boundary_top = 4f;
     private float boundary_bottom = -4f;
 
+    private KeyCode SHOOT = KeyCode.Space;
     private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
     private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
     private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
+    // Audio stuff
+    public Audiobank deathSound = null;
+    public Audiobank hitSound = null;
+    public Audiobank shootSound = null;
+    public Audiobank chargeSound = null;
+    public Audiobank chargeReadySound = null;
+    public Audiobank chargeShotSound = null;
+    private bool playloop = true;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -38,7 +47,6 @@ public class PlayerController : MonoBehaviour
         chargeParticles.Stop();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
@@ -75,25 +83,35 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             if (health == 0)
+            {
+                deathSound.PlayOnce();
                 SceneManager.LoadScene("SampleScene");
+            }
+            hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
         }
     }
 
-    private bool keysPressed(List<KeyCode> keycodes) {
+    private bool keysPressed(List<KeyCode> keycodes)
+    {
         foreach (var keycode in keycodes)
         {
-            if (Input.GetKey(keycode)) {
+            if (Input.GetKey(keycode))
+            {
                 return true;
             }
         }
         return false;
     }
 
-    private bool keysPressed(KeyCode keycode) {
-        if (Input.GetKey(keycode)) {
+    private bool keysPressed(KeyCode keycode)
+    {
+        if (Input.GetKey(keycode))
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }

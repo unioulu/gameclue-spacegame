@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Killable : MonoBehaviour
 {
-
     [SerializeField]
     protected int maxHealth = 3;
     protected int health;
+
+    public Audiobank enemyDeathSound;
+    public Audiobank enemyHitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class Killable : MonoBehaviour
     void Update()
     {
         if (health <= 0) {
+            enemyDeathSound.PlayOnce();
             Destroy(gameObject);
             OnDeath();
         }
@@ -27,6 +30,7 @@ public class Killable : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
+            enemyHitSound.PlayOnce();
             health -= other.gameObject.GetComponent<Bullet>().damage;
         }
     }
