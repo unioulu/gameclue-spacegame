@@ -8,6 +8,8 @@ public class ShootingPlayerChargeShot : MonoBehaviour
     public GameObject chargeBulletPrefab;
 
     public int chargeTime = 1;
+    public int bulletAmnt = 10;
+    public float spreadAmnt = .1f;
     public float particleStartDelay = 0.2f;
     private float charge = 0f;
 
@@ -36,7 +38,11 @@ public class ShootingPlayerChargeShot : MonoBehaviour
         {
             if (charge > chargeTime)
             {
-                Instantiate(chargeBulletPrefab, transform.position, Quaternion.identity);
+                for (int i=-(int)Mathf.Floor(bulletAmnt/2); i<(int)Mathf.Floor(bulletAmnt/2); i++)
+                {
+                    GameObject bulletinstance = Instantiate(chargeBulletPrefab, transform.position, Quaternion.identity);
+                    bulletinstance.GetComponent<Bullet>().Angle = i * spreadAmnt + .5f * Mathf.PI;
+                }
             }
             chargeParticles.Stop();
             chargeParticles.Clear();
