@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public Bullet bulletPrefab;
 
     public int shootCooldown = 2;
     public float shootWarningtime = 0.5f;
     public float bulletSpeed = 4f;
 
     public AngleSelector selector;
-
-    private GameObject bulletInstance;
 
     public Sprite idleSprite;
     public Sprite prepareSprite;
@@ -36,8 +34,10 @@ public class EnemyShooting : MonoBehaviour
 
         if (shootTimer > shootCooldown)
         {
-            bulletInstance = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bulletInstance.GetComponent<Rigidbody2D>().velocity = targetVector * bulletSpeed;
+            Bullet bulletInstance = Instantiate<Bullet>(bulletPrefab, transform.position, Quaternion.identity);
+            bulletInstance.speed = bulletSpeed;
+            bulletInstance.Angle = Vector3.SignedAngle(selector.NormalizedVector(), Vector3.right, Vector3.back) * Mathf.Deg2Rad;
+            //bulletInstance.GetComponent<Rigidbody2D>().velocity = targetVector * bulletSpeed;
             shootTimer = 0;
             ShowSprite(shootSprite);
         }

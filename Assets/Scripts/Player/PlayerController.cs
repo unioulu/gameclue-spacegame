@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public Audiobank chargeShotSound = null;
     private bool playloop = true;
 
+    public List<string> damageTags = new List<string>();
+
 
     void Start()
     {
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy" && currHitCooldown <= 0)
+        if (damageTags.Contains(other.gameObject.tag) && currHitCooldown <= 0)
         {
             health--;
             if (health == 0)
