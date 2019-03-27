@@ -33,11 +33,6 @@ public class PlayerController : MonoBehaviour
     // Audio stuff
     public Audiobank deathSound = null;
     public Audiobank hitSound = null;
-    public Audiobank shootSound = null;
-    public Audiobank chargeSound = null;
-    public Audiobank chargeReadySound = null;
-    public Audiobank chargeShotSound = null;
-    private bool playloop = true;
 
 
     void Start()
