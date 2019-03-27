@@ -59,36 +59,6 @@ public class PlayerController : MonoBehaviour
 
         if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
 
-        if (Input.GetKeyDown(SHOOT)){ chargeSound.PlayOnce(); }
-        if (Input.GetKey(SHOOT))
-        {
-            charge += Time.deltaTime;
-            if (charge > chargeTime && playloop)
-            {
-                // Play looping sound here
-                chargeReadySound.PlayLoop();
-                playloop = false;
-            }
-        }
-        if (Input.GetKeyUp(SHOOT))
-        {
-            if (charge > chargeTime)
-            {
-                Instantiate(chargeBullet, transform.position, Quaternion.identity);
-                chargeShotSound.PlayOnce();
-            }
-            else
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                shootSound.PlayOnce();
-            }
-
-            chargeSound.StopPlay();
-            chargeReadySound.StopPlay();
-            charge = 0;
-            playloop = true;
-        }
-
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
 
