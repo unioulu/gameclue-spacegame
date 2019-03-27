@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 719575157318650661}
   - component: {fileID: 5190953454184486575}
   - component: {fileID: 2229441666764695862}
+  - component: {fileID: 6912703746955791939}
   m_Layer: 0
   m_Name: ChargeBullet
   m_TagString: Bullet
@@ -159,3 +160,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 84068606796700755}
+--- !u!114 &6912703746955791939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816670526083997164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccec52f78961e6b42a8d080163a2eb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  distance: 10

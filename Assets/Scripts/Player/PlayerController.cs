@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     public int textureSize = 50;
     public int texturePadding = 4;
 
-    public ParticleSystem chargeParticles;
-
     private Rigidbody2D rb;
     private Vector3 lastPos;
     private float boundary_left = -10f;
@@ -33,11 +31,6 @@ public class PlayerController : MonoBehaviour
     // Audio stuff
     public Audiobank deathSound = null;
     public Audiobank hitSound = null;
-    public Audiobank shootSound = null;
-    public Audiobank chargeSound = null;
-    public Audiobank chargeReadySound = null;
-    public Audiobank chargeShotSound = null;
-    private bool playloop = true;
 
     public List<string> damageTags = new List<string>();
 
@@ -46,7 +39,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         lastPos = transform.position;
-        chargeParticles.Stop();
     }
 
     void Update()

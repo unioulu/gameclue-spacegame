@@ -7,9 +7,15 @@ public class ShootingPlayer : MonoBehaviour
 
     public GameObject bulletPrefab;
     public KeyCode shootKey = KeyCode.Space;
-    public float maxKeyHoldTime = 1f;
+    private float maxKeyHoldTime = 1f;
     private float keyHoldTime = 0f;
 
+    public Audiobank shootSound;
+
+    private void Start()
+    {
+        maxKeyHoldTime = gameObject.GetComponent<ShootingPlayerChargeShot>().chargeTime;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,6 +28,7 @@ public class ShootingPlayer : MonoBehaviour
         {
             if (keyHoldTime < maxKeyHoldTime)
             {
+                shootSound.PlayOnce();
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             }
             keyHoldTime = 0f;

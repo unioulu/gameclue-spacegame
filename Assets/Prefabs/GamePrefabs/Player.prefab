@@ -4709,6 +4709,7 @@ GameObject:
   - component: {fileID: 8804307249713526953}
   - component: {fileID: 8804307249713526952}
   - component: {fileID: 8804307249713526967}
+  - component: {fileID: 3908071053341652024}
   - component: {fileID: 2773896401649063868}
   - component: {fileID: 2649069084142295400}
   - component: {fileID: 1653072142010834305}
@@ -4810,13 +4811,24 @@ MonoBehaviour:
   chargeParticles: {fileID: 0}
   deathSound: {fileID: 2773896401649063868}
   hitSound: {fileID: 2649069084142295400}
-  shootSound: {fileID: 1653072142010834305}
-  chargeSound: {fileID: 3238335007951192750}
-  chargeReadySound: {fileID: 5176291457636706121}
-  chargeShotSound: {fileID: 1437692353369883291}
   damageTags:
   - Enemy
   - EnemyBullet
+--- !u!114 &3908071053341652024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804307249713526965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 757de6243656d4b1690d874f5e934110, type: 3}
 --- !u!114 &2773896401649063868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,6 +4982,7 @@ MonoBehaviour:
     type: 3}
   shootKey: 32
   maxKeyHoldTime: 1
+  shootSound: {fileID: 3908071053341652024}
 --- !u!114 &3618208823571233273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4984,9 +4997,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeBulletPrefab: {fileID: 1816670526083997164, guid: b2ba54d81850644b9a8b6f9ae414f977,
     type: 3}
-  chargeTime: 1
   bulletAmnt: 10
   spreadAmnt: 0.1
   particleStartDelay: 0.2
+  chargeTime: 2.3
   chargeParticles: {fileID: 4505185072086076251}
   shootKey: 32
+  chargeSound: {fileID: 3238335007951192750}
+  chargeReadySound: {fileID: 5176291457636706121}
+  chargeShotSound: {fileID: 1437692353369883291}
+  playloop: 1
