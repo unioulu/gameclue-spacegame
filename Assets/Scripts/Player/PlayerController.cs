@@ -77,7 +77,6 @@ public class PlayerController : MonoBehaviour
         }
 
         spriteFlicker += playerDmgEffectSpeed;
-
     }
 
     private void OnGUI()
