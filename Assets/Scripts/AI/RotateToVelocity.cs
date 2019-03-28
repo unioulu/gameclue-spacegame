@@ -12,8 +12,11 @@ public class RotateToVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, 0f, -previousRotation);
-        previousRotation = Vector3.SignedAngle(Vector3.up, rb.velocity, Vector3.forward);
-        transform.Rotate(0f, 0f, previousRotation);
+        if (CueManager.HasCues())
+        {
+            transform.Rotate(0f, 0f, -previousRotation);
+            previousRotation = Vector3.SignedAngle(Vector3.up, rb.velocity, Vector3.forward);
+            transform.Rotate(0f, 0f, previousRotation);
+        }
     }
 }
