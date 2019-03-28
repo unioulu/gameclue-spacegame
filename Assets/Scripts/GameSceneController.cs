@@ -34,7 +34,7 @@ public class GameSceneController : MonoBehaviour
             cam.transform.position = new Vector3(Random.Range(-shakeOffset, shakeOffset), Random.Range(-shakeOffset, shakeOffset), cam.transform.position.z);
             if (Time.unscaledTime - lastEscapePress > quitDelay)
             {
-                EventLogger.Log(EventLog.EventCode.GameQuit());
+                EventLogger.Log(EventLog.EventCode.GameEnded("InputEscapePressed"));
                 Application.Quit();
             }
         }

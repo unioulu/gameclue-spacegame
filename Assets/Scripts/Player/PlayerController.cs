@@ -98,8 +98,11 @@ public class PlayerController : MonoBehaviour
         {
             spriteFlicker = 0;
             health--;
+            EventLogger.Log(EventLog.EventCode.PlayerReceivedDamage(other.gameObject.name, 1));
             if (health == 0)
             {
+                EventLogger.Log(EventLog.EventCode.PlayerDied(other.gameObject.name, 1));
+                EventLogger.Log(EventLog.EventCode.GameEnded("PlayerDied"));
                 deathSound.PlayOnce();
                 SceneManager.LoadScene("SampleScene");
             }

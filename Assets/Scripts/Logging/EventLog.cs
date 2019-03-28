@@ -6,7 +6,7 @@ public class EventLog
     {
         // Game/application level events
         public static string GameStarted() { return "GameStarted"; }
-        public static string GameQuit() { return "GameQuit"; }
+        public static string GameEnded(string reason) { return "GameQuit|" + reason; }
         public static string GameHasCues(bool hasCues) { return "HasCues " + hasCues; }
 
         // Input events
@@ -14,7 +14,8 @@ public class EventLog
         public static string InputKeyDown(KeyCode key) { return "KeyDown " + key; }
 
         // Player events
-        public static string PlayerReceivedDamage(string damageSourceId, int damageAmount) { return "PlayerDamaged " + damageSourceId; }
+        public static string PlayerReceivedDamage(string damageSourceId, int damageAmount) { return "PlayerReceivedDamage|" + damageSourceId + "|" + damageAmount; }
+        public static string PlayerDied(string damageSourceId, int damageAmount) { return "PlayerDied|" + damageSourceId + "|" + damageAmount; }
         public static string PlayerFiredNormalShot() { return "PlayerFiredNormalShot"; }
         public static string PlayerFiredChargedShot() { return "PlayerFiredChargedShot"; }
 
