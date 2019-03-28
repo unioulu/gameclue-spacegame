@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6700961819921767610}
   - component: {fileID: 3462018429620036030}
   - component: {fileID: 6578919431774110210}
+  - component: {fileID: 7487325565665107460}
   m_Layer: 0
   m_Name: SinMovementEnemy
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7893085864451236806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +43,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7893085864451236806}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -92,8 +93,8 @@ SpriteRenderer:
   m_SortingLayerID: 573085581
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.3726415, g: 0.5775796, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f125c2aef61c7514b9032803b9362d33, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,6 +119,8 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   speed: 1
   direction: {x: 0, y: 1, z: 0}
+  amplitude: 1.5
+  waveTime: 3.5
 --- !u!114 &6578919431774110210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +136,19 @@ MonoBehaviour:
   maxHealth: 3
   enemyDeathSound: {fileID: 0}
   enemyHitSound: {fileID: 0}
+--- !u!58 &7487325565665107460
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893085864451236806}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1

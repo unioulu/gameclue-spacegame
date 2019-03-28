@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2838009046906801386}
   - component: {fileID: 2838009046906801387}
   - component: {fileID: 2838009046906801384}
-  - component: {fileID: 2838009046906801385}
   - component: {fileID: 2838009046906801390}
   - component: {fileID: 1416595167715090945}
   - component: {fileID: 1402598975150087407}
   - component: {fileID: 4374613884301057072}
+  - component: {fileID: 3609672885801601213}
   m_Layer: 0
   m_Name: RandomEnemy
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 2838009046906801391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.698003, y: -0.23787321, z: -0.13091916}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,22 +88,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2838009046906801385
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2838009046906801391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!212 &2838009046906801390
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -141,8 +125,8 @@ SpriteRenderer:
   m_SortingLayerID: 573085581
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.754717, g: 0, b: 0.1625914, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f125c2aef61c7514b9032803b9362d33, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  distance: 10
+  offset: 0.6
 --- !u!114 &4374613884301057072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +180,19 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
+--- !u!58 &3609672885801601213
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838009046906801391}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1

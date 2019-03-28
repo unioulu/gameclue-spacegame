@@ -4804,11 +4804,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   hitCooldown: 2
-  playerDmgEffectSpeed: 2
+  playerDmgEffectSpeed: 5
   health: 3
-  healthTexture: {fileID: 2800000, guid: eec844d74ba134626afd9dc284f724a1, type: 3}
+  healthTexture: {fileID: 2800000, guid: 14ade2a80d049994dac755c77779c54c, type: 3}
   healthTextureSize: 50
-  healthTexturePadding: 4
+  healthTexturePadding: 1
   deathSound: {fileID: 2773896401649063868}
   hitSound: {fileID: 2649069084142295400}
   damageTags:

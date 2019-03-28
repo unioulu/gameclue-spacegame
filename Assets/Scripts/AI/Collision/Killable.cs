@@ -11,7 +11,6 @@ public class Killable : MonoBehaviour
     public Audiobank enemyDeathSound;
     public Audiobank enemyHitSound;
 
-    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
@@ -20,8 +19,11 @@ public class Killable : MonoBehaviour
     void Update()
     {
         if (health <= 0) {
-            enemyDeathSound.PlayOnce();
             EventLogger.Log(EventLog.EventCode.EnemyDied(gameObject.name, gameObject.transform.position.x, gameObject.transform.position.y));
+            if (enemyDeathSound != null)
+            {
+                enemyDeathSound.PlayOnce();
+            }
             Destroy(gameObject);
             OnDeath();
         }
@@ -31,10 +33,13 @@ public class Killable : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
-            enemyHitSound.PlayOnce();
             int damage = other.gameObject.GetComponent<Bullet>().damage;
             health -= damage;
             EventLogger.Log(EventLog.EventCode.EnemyReceivedDamage(other.name, damage));
+            if (enemyHitSound != null)
+            {
+                enemyHitSound.PlayOnce();
+            }
         }
     }
 
