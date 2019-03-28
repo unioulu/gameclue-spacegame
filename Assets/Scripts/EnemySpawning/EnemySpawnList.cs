@@ -12,8 +12,16 @@ public class EnemySpawnList : MonoBehaviour
     public float minSpawnTime = 0.5f;
     public float maxSpawnTime = 1.5f;
 
-    public float minSpawnPosition = -7f;
-    public float maxSpawnPosition = 7f;
+    private float minSpawnPosition = -7f;
+    private float maxSpawnPosition = 7f;
+    public float spawnpointOffset = 0.6f;
+
+    private void Start()
+    {
+        Vector2 edgeVector = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
+        minSpawnPosition = -edgeVector.x + spawnpointOffset;
+        maxSpawnPosition = edgeVector.x - spawnpointOffset ;
+    }
 
     public void GenerateRandomly()
     {

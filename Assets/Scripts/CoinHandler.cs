@@ -14,12 +14,19 @@ public class CoinHandler : MonoBehaviour
     private GameObject coinInstance;
 
     private int score;
-    readonly float boundary_left = -10f;
-    readonly float boundary_right = 10f;
+    private float boundary_left = -10f;
+    private float boundary_right = 10f;
+    public float spawnpointOffset = 0.6f;
     private bool dir = true;
     private float spawnTimer;
     private float negSpawnTimer;
 
+    private void Start()
+    {
+        Vector2 edgeVector = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        boundary_left = -edgeVector.x + spawnpointOffset;
+        boundary_right = edgeVector.x - spawnpointOffset;
+    }
 
     // Update is called once per frame
     void Update()
