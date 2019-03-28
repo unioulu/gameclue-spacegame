@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     public List<string> damageTags = new List<string>();
 
+    public GameObject deathScreen;
+
 
     void Start()
     {
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviour
             if (health == 0)
             {
                 deathSound.PlayOnce();
-                SceneManager.LoadScene("SampleScene");
+                deathScreen.SetActive(true);
             }
             hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
