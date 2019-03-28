@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7793670906595527759}
   - component: {fileID: 7793670906595527792}
   - component: {fileID: 7793670906595527793}
-  - component: {fileID: 5025114055344039862}
   - component: {fileID: 6721590504750870023}
   - component: {fileID: 5423346418953667572}
+  - component: {fileID: 5645015269991928674}
   m_Layer: 0
   m_Name: TargetedHoverEnemy
   m_TagString: Enemy
@@ -117,8 +117,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1680558009
-  m_SortingLayer: 0
+  m_SortingLayerID: 573085581
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.4076313, g: 0.8773585, b: 0.1448469, a: 1}
@@ -131,21 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5025114055344039862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7793670906595527795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b966a992ba1404aa339e0f3c7929c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCenterPosition: {x: 0, y: 0, z: 0}
-  hoverRadius: 3
-  speed: 5
 --- !u!114 &6721590504750870023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {x: 0, y: 0, z: 0}
-  targetRadius: 0
+  targetRadius: 3
   speed: 5
 --- !u!114 &5423346418953667572
 MonoBehaviour:
@@ -174,3 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  enemyDeathSound: {fileID: 0}
+  enemyHitSound: {fileID: 0}
+--- !u!114 &5645015269991928674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793670906595527795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d6f8c0890cb41feb18cb3ca932bfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCenterPosition: {x: 0, y: 0, z: 0}
+  hoverRadius: 3
+  speed: 1
