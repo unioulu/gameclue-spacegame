@@ -20,7 +20,10 @@ public class Killable : MonoBehaviour
     void Update()
     {
         if (health <= 0) {
-            enemyDeathSound.PlayOnce();
+            if (enemyDeathSound != null)
+            {
+                enemyDeathSound.PlayOnce();
+            }
             Destroy(gameObject);
             OnDeath();
         }
@@ -30,7 +33,10 @@ public class Killable : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
-            enemyHitSound.PlayOnce();
+            if (enemyHitSound != null)
+            {
+                enemyHitSound.PlayOnce();
+            }
             health -= other.gameObject.GetComponent<Bullet>().damage;
         }
     }
