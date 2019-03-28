@@ -19,10 +19,10 @@ public class KeyLogger : MonoBehaviour
     {
         foreach (KeyCode code in codes) {
             if (Input.GetKeyDown(code)) {
-                EventLogger.Log(EventLog.EventCode.KeyDown(code));
+                EventLogger.Log(EventLog.EventCode.InputKeyDown(code));
             }
             if (Input.GetKeyUp(code)) {
-                EventLogger.Log(EventLog.EventCode.KeyUp(code));
+                EventLogger.Log(EventLog.EventCode.InputKeyUp(code));
             }
         }
     }

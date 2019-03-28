@@ -1,5 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -19,13 +17,6 @@ public class EnemyShooting : MonoBehaviour
 
     private float shootTimer;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 targetVector = selector.NormalizedVector();
@@ -36,7 +27,9 @@ public class EnemyShooting : MonoBehaviour
         {
             Bullet bulletInstance = Instantiate<Bullet>(bulletPrefab, transform.position, Quaternion.identity);
             bulletInstance.speed = bulletSpeed;
-            bulletInstance.Angle = Vector3.SignedAngle(selector.NormalizedVector(), Vector3.right, Vector3.back) * Mathf.Deg2Rad;
+            float angle = Vector3.SignedAngle(selector.NormalizedVector(), Vector3.right, Vector3.back) * Mathf.Deg2Rad;
+            bulletInstance.Angle = angle;
+            EventLogger.Log(EventLog.EventCode.EnemyFiredNormalShot(bulletInstance.name, angle));
             //bulletInstance.GetComponent<Rigidbody2D>().velocity = targetVector * bulletSpeed;
             shootTimer = 0;
             ShowSprite(shootSprite);
@@ -44,7 +37,7 @@ public class EnemyShooting : MonoBehaviour
         else if (shootTimer > shootCooldown - shootWarningtime)
         {
             ShowSprite(prepareSprite);
-        } 
+        }
         else if (shootTimer > 0.05f)
         {
             ShowSprite(idleSprite);

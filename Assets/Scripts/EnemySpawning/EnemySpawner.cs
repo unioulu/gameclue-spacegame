@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -21,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
     public float lastSpawnTime = 0f;
     private EnemySpawnListItem nextSpawn = null;
 
-    // Start is called before the first frame update
     void Start()
     {
         Random.InitState(seed);
@@ -30,32 +27,15 @@ public class EnemySpawner : MonoBehaviour
         nextSpawn = spawnList.NextItemAtTime(spawnTimer);
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnTimer += Time.deltaTime;
-
         if (spawnTimer > nextSpawn.time)
         {
             GameObject.Instantiate(nextSpawn.enemyData.prefab, new Vector3(nextSpawn.spawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
+            EventLogger.Log(EventLog.EventCode.EnemySpawned(nextSpawn.enemyData.prefab.name, nextSpawn.spawnPosition, transform.position.y));
             nextSpawn = spawnList.NextItemAtTime(spawnTimer + 0.001f);
         }
-
-        /*
-        if (transform.position.x < boundary_left || transform.position.x > boundary_right) { direction = !direction; }
-
-        if (direction) { transform.Translate(new Vector3(speed,0,0)); }
-        else { transform.Translate(new Vector3(-speed, 0, 0)); }
-
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= enemySpawnRate)
-        {
-            GameObject prefab = enemyPrefabs[Random.Range((int)0, (int)enemyPrefabs.Length)];
-             Instantiate(prefab, transform.position, Quaternion.identity);
-            spawnTimer = 0;
-            enemySpawnRate = RandomSpawnrate();
-        }
-        */
     }
 
     float RandomSpawnrate()
