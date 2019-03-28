@@ -76,12 +76,13 @@ public class EventLogger
         string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
         string filePath = Path.Combine(desktopPath, gameName + "-" + fileNameAppend + ".txt");
 
-        using (StreamWriter file = new StreamWriter(filePath, false))
+        using (StreamWriter file = new StreamWriter(filePath, true))
         {
             foreach (EventLog log in logList)
             {
                 file.WriteLine(log.ToString());
             }
+            logList.Clear();
         }
     }
 
