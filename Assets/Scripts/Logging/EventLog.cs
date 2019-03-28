@@ -36,7 +36,7 @@ public class EventLog
 
     override public string ToString()
     {
-        return timestamp + " , " + message;
+        return "\"" + timestamp + "\";\"" + message + "\"";
     }
 
 }
