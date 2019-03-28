@@ -7,11 +7,11 @@ public class EventLog
         // Game/application level events
         public static string GameStarted() { return "GameStarted"; }
         public static string GameEnded(string reason) { return "GameQuit|" + reason; }
-        public static string GameHasCues(bool hasCues) { return "HasCues " + hasCues; }
+        public static string GameHasCues(bool hasCues) { return "HasCues|" + hasCues; }
 
         // Input events
-        public static string InputKeyUp(KeyCode key) { return "KeyUp " + key; }
-        public static string InputKeyDown(KeyCode key) { return "KeyDown " + key; }
+        public static string InputKeyUp(KeyCode key) { return "KeyUp|" + key; }
+        public static string InputKeyDown(KeyCode key) { return "KeyDown|" + key; }
 
         // Player events
         public static string PlayerReceivedDamage(string damageSourceId, int damageAmount) { return "PlayerReceivedDamage|" + damageSourceId + "|" + damageAmount; }
