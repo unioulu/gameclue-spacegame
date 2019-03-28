@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
 
     public float hitCooldown = 2f;
     private float currHitCooldown;
+    public int playerDmgEffectSpeed = 2;
+    private int spriteFlicker = 0;
 
     public int health = 3;
-    public Texture2D texture;
-    public int textureSize = 50;
-    public int texturePadding = 4;
+    public Texture2D healthTexture;
+    public int healthTextureSize = 50;
+    public int healthTexturePadding = 4;
 
     private Rigidbody2D rb;
     private Vector3 lastPos;
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
     private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
+    private SpriteRenderer sr;
+
     // Audio stuff
     public Audiobank deathSound = null;
     public Audiobank hitSound = null;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         lastPos = transform.position;
     }
 
@@ -57,8 +62,21 @@ public class PlayerController : MonoBehaviour
         dirVector = Vector3.zero;
 
         currHitCooldown -= Time.deltaTime;
-        if (currHitCooldown < 0)
+        if (currHitCooldown <= 0)
+        {
             currHitCooldown = 0;
+            sr.enabled = true;
+        }
+        else
+        {
+            // This switches player sprite on and off if player just took damage
+            if ((int)Mathf.Floor((spriteFlicker % 60) / 30) == 0)
+                sr.enabled = false;
+            else
+                sr.enabled = true;
+        }
+
+        spriteFlicker += playerDmgEffectSpeed;
 
     }
 
@@ -66,7 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < health; i++)
         {
-            GUI.DrawTexture(new Rect(texturePadding + i * textureSize, Screen.height - textureSize - texturePadding, textureSize, textureSize), texture);
+            GUI.DrawTexture(new Rect(healthTexturePadding + i * healthTextureSize, Screen.height - healthTextureSize - healthTexturePadding, healthTextureSize, healthTextureSize), healthTexture);
         }
     }
 
@@ -75,6 +93,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(other.gameObject.tag);
         if (damageTags.Contains(other.gameObject.tag) && currHitCooldown <= 0)
         {
+            spriteFlicker = 0;
             health--;
             if (health == 0)
             {
