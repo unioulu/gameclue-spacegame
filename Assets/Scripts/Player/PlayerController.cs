@@ -19,10 +19,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector3 lastPos;
-    private float boundary_left = -10f;
-    private float boundary_right = 10f;
-    private float boundary_top = 4f;
-    private float boundary_bottom = -4f;
+
+    private Vector2 topRightCorner;
+    private Vector2 edgeVector;
+    private float playerSpriteSize;
 
     private KeyCode SHOOT = KeyCode.Space;
     private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
@@ -44,19 +44,23 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         lastPos = transform.position;
+
+        topRightCorner = new Vector2(1, 1);
+        edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
+        playerSpriteSize = transform.localScale.x;
     }
 
     void Update()
     {
         Vector3 pos = transform.position;
         Vector3 dirVector = Vector3.zero;
-        if (keysPressed(MOVE_LEFT) && pos.x > boundary_left) { dirVector.x = -1; }
+        if (keysPressed(MOVE_LEFT) && pos.x > -edgeVector.x+playerSpriteSize) { dirVector.x = -1; }
 
-        if (keysPressed(MOVE_RIGHT) && pos.x < boundary_right) { dirVector.x = 1; }
+        if (keysPressed(MOVE_RIGHT) && pos.x < edgeVector.x-playerSpriteSize) { dirVector.x = 1; }
 
-        if (keysPressed(MOVE_UP) && pos.y < boundary_top) { dirVector.y = 1; }
+        if (keysPressed(MOVE_UP) && pos.y < edgeVector.y-playerSpriteSize) { dirVector.y = 1; }
 
-        if (keysPressed(MOVE_DOWN) && pos.y > boundary_bottom) { dirVector.y = -1; }
+        if (keysPressed(MOVE_DOWN) && pos.y > -edgeVector.y+playerSpriteSize) { dirVector.y = -1; }
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
