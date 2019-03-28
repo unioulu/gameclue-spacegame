@@ -120,6 +120,7 @@ MonoBehaviour:
   speed: 1
   direction: {x: 0, y: 1, z: 0}
   amplitude: 1.5
+  waveTime: 3.5
 --- !u!114 &6578919431774110210
 MonoBehaviour:
   m_ObjectHideFlags: 0
