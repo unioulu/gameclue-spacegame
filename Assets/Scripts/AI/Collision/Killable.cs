@@ -21,6 +21,7 @@ public class Killable : MonoBehaviour
     {
         if (health <= 0) {
             enemyDeathSound.PlayOnce();
+            EventLogger.Log(EventLog.EventCode.EnemyDied(gameObject.name, gameObject.transform.position.x, gameObject.transform.position.y));
             Destroy(gameObject);
             OnDeath();
         }
@@ -38,5 +39,5 @@ public class Killable : MonoBehaviour
     protected virtual void OnDeath()
     {
 
-    } 
+    }
 }

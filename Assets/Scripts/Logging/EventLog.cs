@@ -21,10 +21,10 @@ public class EventLog
         public static string PlayerCollidesWithPickUp(string pickUp) { return "PlayerCollidesWithPickUp|" + pickUp; }
 
         // Enemy events
-        public static string EnemySpawned(string enemyId, float xPos, float yPos) { return "EnemyCreated " + enemyId; } // unhooked
-        public static string EnemyDied(string enemyId) { return "EnemyDied " + enemyId; }
-        public static string EnemyFiredNormalShot(string enemyId) { return "EnemyFiredNormalShot " + enemyId; }
-        public static string EnemyReceivedDamage(string enemyId) { return "EnemyReceivedDamage " + enemyId; } // unhooked
+        public static string EnemySpawned(string enemyId, float xPos, float yPos) { return "EnemySpawned|" + enemyId + "|" + xPos + "|" + yPos; }
+        public static string EnemyDied(string enemyId, float xPos, float yPos) { return "EnemyDied|" + enemyId + "|" + xPos + "|" + yPos; }
+        public static string EnemyFiredNormalShot(string enemyId) { return "EnemyFiredNormalShot " + enemyId; } // TODO
+        public static string EnemyReceivedDamage(string enemyId) { return "EnemyReceivedDamage " + enemyId; } // TODO
 
         // Pickup events
         public static string PickUpSpawned(string pickUpId, float x, float y) { return "PickUpSpawned|" + pickUpId; }
