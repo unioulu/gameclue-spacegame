@@ -32,7 +32,9 @@ public class Killable : MonoBehaviour
         if (other.tag == "Bullet")
         {
             enemyHitSound.PlayOnce();
-            health -= other.gameObject.GetComponent<Bullet>().damage;
+            int damage = other.gameObject.GetComponent<Bullet>().damage;
+            health -= damage;
+            EventLogger.Log(EventLog.EventCode.EnemyReceivedDamage(other.name, damage));
         }
     }
 

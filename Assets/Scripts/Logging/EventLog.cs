@@ -6,7 +6,7 @@ public class EventLog
     {
         // Game/application level events
         public static string GameStarted() { return "GameStarted"; }
-        public static string GameEnded(string reason) { return "GameQuit|" + reason; }
+        public static string GameEnded(string reason) { return "GameEnded|" + reason; }
         public static string GameHasCues(bool hasCues) { return "HasCues|" + hasCues; } // TODO
 
         // Input events
@@ -23,8 +23,8 @@ public class EventLog
         // Enemy events
         public static string EnemySpawned(string enemyId, float xPos, float yPos) { return "EnemySpawned|" + enemyId + "|" + xPos + "|" + yPos; }
         public static string EnemyDied(string enemyId, float xPos, float yPos) { return "EnemyDied|" + enemyId + "|" + xPos + "|" + yPos; }
-        public static string EnemyFiredNormalShot(string enemyId) { return "EnemyFiredNormalShot " + enemyId; } // TODO
-        public static string EnemyReceivedDamage(string enemyId) { return "EnemyReceivedDamage " + enemyId; } // TODO
+        public static string EnemyFiredNormalShot(string enemyId, float angle) { return "EnemyFiredNormalShot|" + enemyId + "|" + angle; } // TESTME
+        public static string EnemyReceivedDamage(string enemyId, int damageAmount) { return "EnemyReceivedDamage|" + enemyId + "|" + damageAmount; }
 
         // Pickup events
         public static string PickUpSpawned(string pickUpId, float x, float y) { return "PickUpSpawned|" + pickUpId; }
