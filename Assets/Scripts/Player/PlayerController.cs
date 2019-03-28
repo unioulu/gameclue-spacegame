@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     public List<string> damageTags = new List<string>();
 
+    void Awake()
+    {
+      EventLogger.Log(EventLog.EventCode.GameStarted());
+    }
 
     void Start()
     {
