@@ -13,12 +13,16 @@ public class SplashScreenController : MonoBehaviour
     [SerializeField]
     UI.Text gameNameLabel = null;
 
+    [SerializeField]
+    private bool hasCues = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         EventLogger.SetName(nameGenerator.Name());
         gameNameLabel.text = nameGenerator.Name();
+        CueManager.SetCues(hasCues);
     }
 
     // Update is called once per frame
