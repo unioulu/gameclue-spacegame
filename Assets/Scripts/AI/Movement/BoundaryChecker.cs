@@ -6,7 +6,7 @@ public class BoundaryChecker : MonoBehaviour
 {
 
     public bool active = true;
-    public float distance = 10f;
+    public float offset = 0.6f;
 
     private Vector2 topRightCorner;
     private Vector2 edgeVector;
@@ -21,14 +21,7 @@ public class BoundaryChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (active && Vector3.Distance(Vector3.zero, transform.position) > distance)
-        {
-            Destroy(this.gameObject);
-        }
-        */
-
-        if (Mathf.Abs(transform.position.x) > Mathf.Abs(edgeVector.x) || Mathf.Abs(transform.position.y) > Mathf.Abs(edgeVector.y) + 2f)
+        if (active && (Mathf.Abs(transform.position.x) > Mathf.Abs(edgeVector.x) || transform.position.y < -edgeVector.y -offset ))
         {
             Destroy(this.gameObject);
         }
