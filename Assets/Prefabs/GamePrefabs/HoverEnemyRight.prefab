@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3092629530811486976}
   - component: {fileID: 3092629530811486979}
   - component: {fileID: 3092629530811486978}
-  - component: {fileID: 3092629530811486981}
   - component: {fileID: 3092629530811486980}
   - component: {fileID: 3092629530811486983}
+  - component: {fileID: 70798289592910151}
   m_Layer: 0
   m_Name: HoverEnemyRight
   m_TagString: Enemy
@@ -131,21 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3092629530811486981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3092629530811486982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b966a992ba1404aa339e0f3c7929c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCenterPosition: {x: 5, y: -2, z: 0}
-  hoverRadius: 3
-  speed: 5
 --- !u!114 &3092629530811486980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309c2ef247439214b95fa2a3af65c4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoint: {x: -5, y: -2, z: 0}
+  targetPoint: {x: 5, y: -2, z: 0}
   targetRadius: 3
   speed: 5
 --- !u!114 &3092629530811486983
@@ -174,3 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  enemyDeathSound: {fileID: 0}
+  enemyHitSound: {fileID: 0}
+--- !u!114 &70798289592910151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092629530811486982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d6f8c0890cb41feb18cb3ca932bfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCenterPosition: {x: 5, y: -2, z: 0}
+  hoverRadius: 3
+  speed: 5

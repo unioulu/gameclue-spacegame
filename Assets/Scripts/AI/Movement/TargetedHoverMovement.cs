@@ -5,7 +5,6 @@ using UnityEngine;
 public class TargetedHoverMovement : MonoBehaviour
 {
     public Vector3 targetCenterPosition;
-    private Vector3 targetLeftCenterPosition;
     public float hoverRadius = 3f;
     public float speed = 1;
     private Rigidbody2D rb;
@@ -27,9 +26,8 @@ public class TargetedHoverMovement : MonoBehaviour
     {
         if (!IsAtTarget())
         {
-            this.targetLeftCenterPosition = targetCenterPosition - new Vector3(-hoverRadius, 0, 0);
             Vector3 currentPosition = this.transform.position;
-            Vector3 direction = targetLeftCenterPosition - currentPosition;
+            Vector3 direction = targetCenterPosition - currentPosition;
             direction = direction.normalized;
 
             this.rb.velocity = direction * speed;

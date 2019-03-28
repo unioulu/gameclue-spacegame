@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8494534212814391556}
   - component: {fileID: 6494522946133293406}
   - component: {fileID: 8644223307740124660}
-  - component: {fileID: 3499675425426761946}
   - component: {fileID: 66066650919031749}
   - component: {fileID: 2629725941226230166}
+  - component: {fileID: 6667163446405044504}
   m_Layer: 0
   m_Name: HoverEnemyLeft
   m_TagString: Enemy
@@ -131,21 +131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3499675425426761946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4247076794670210666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b966a992ba1404aa339e0f3c7929c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCenterPosition: {x: -5, y: -2, z: 0}
-  hoverRadius: 3
-  speed: 5
 --- !u!114 &66066650919031749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  enemyDeathSound: {fileID: 0}
+  enemyHitSound: {fileID: 0}
+--- !u!114 &6667163446405044504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4247076794670210666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d6f8c0890cb41feb18cb3ca932bfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCenterPosition: {x: -5, y: -2, z: 0}
+  hoverRadius: 3
+  speed: 5
