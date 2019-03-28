@@ -17,7 +17,6 @@ public class SinMovementEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         position = rb.position;
         startXPos = rb.position.x;
-        Debug.Log("startX: " + startXPos);
     }
 
     private void FixedUpdate()
