@@ -127,8 +127,7 @@ MonoBehaviour:
   enemies: {fileID: 1781319869587213741}
   minSpawnTime: 0.5
   maxSpawnTime: 1.5
-  minSpawnPosition: -7
-  maxSpawnPosition: 7
+  spawnpointOffset: 0.6
 --- !u!1001 &5261694173707938326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,6 +211,11 @@ PrefabInstance:
       propertyPath: spawnList
       value: 
       objectReference: {fileID: 976641916170437910}
+    - target: {fileID: 6690085221702570756, guid: 31ba1e137295142b1b339c4bd40d6b45,
+        type: 3}
+      propertyPath: seed
+      value: 600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31ba1e137295142b1b339c4bd40d6b45, type: 3}
 --- !u!4 &1572530229102426387 stripped
