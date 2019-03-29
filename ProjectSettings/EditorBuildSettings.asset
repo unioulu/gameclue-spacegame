@@ -11,4 +11,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 55247603114154c86bddc2f1bda19ae7
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 434c02451ae437e4d92ccfbe2e7394c3
+  - enabled: 1
+    path: Assets/Scenes/ShootGameScene.unity
+    guid: 4774c144e9a51854b8111a494711e999
+  - enabled: 1
+    path: Assets/Scenes/PointGameScene.unity
+    guid: 3b76bcb1cdf9b06489c36b53b3a8457e
+  - enabled: 1
+    path: Assets/Scenes/MovementGameScene.unity
+    guid: fd25c451d71d8ac4f9a5841df085a080
+  - enabled: 1
+    path: Assets/Scenes/InputGameScene.unity
+    guid: bcfb4b1bc1fec5347b51042b04c12555
+  - enabled: 1
+    path: Assets/Scenes/BaseGameScene.unity
+    guid: 3060df43557f7b045bebde339459a668
   m_configObjects: {}

@@ -23,16 +23,21 @@ public class SplashScreenController : MonoBehaviour
         EventLogger.SetName(nameGenerator.Name());
         gameNameLabel.text = nameGenerator.Name();
         CueManager.SetCues(hasCues);
+        EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {   
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(MutationManager.MutationName()+"");
         }
-
+        if (Input.GetKeyUp(KeyCode.F12))
+        {
+            hasCues = !hasCues;
+            CueManager.SetCues(hasCues);
+            EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
+        }
     }
 }

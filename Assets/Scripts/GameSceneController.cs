@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSceneController : MonoBehaviour
 {
@@ -28,6 +29,29 @@ public class GameSceneController : MonoBehaviour
             escapePressed = false;
         }
 
+        if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt) || Input.GetKey(KeyCode.AltGr)) {
+            if (Input.GetKeyUp(KeyCode.F1))
+            {
+                ChangeToMutation("BaseGameScene");
+            }
+            else if (Input.GetKeyUp(KeyCode.F2))
+            {
+                ChangeToMutation("PointGameScene");
+            }
+            else if (Input.GetKeyUp(KeyCode.F3))
+            {
+                ChangeToMutation("MovementGameScene");
+            }
+            else if (Input.GetKeyUp(KeyCode.F4))
+            {
+                ChangeToMutation("ShootGameScene");
+            }
+            else if (Input.GetKeyUp(KeyCode.F5))
+            {
+                ChangeToMutation("InputGameScene");
+            }
+        }
+
         if (escapePressed)
         {
             Camera cam = Camera.main;
@@ -39,5 +63,12 @@ public class GameSceneController : MonoBehaviour
             }
         }
 
+    }
+
+    void ChangeToMutation(string name)
+    {
+        MutationManager.SetMutationName(name);
+        EventLogger.Log("ChangedScene|" + MutationManager.MutationName());
+        SceneManager.LoadScene("SplashScreen");
     }
 }
