@@ -110,8 +110,7 @@ public class PlayerController : MonoBehaviour
                 EventLogger.Log(EventLog.EventCode.PlayerDied(other.gameObject.name, 1));
                 EventLogger.Log(EventLog.EventCode.GameEnded("PlayerDied"));
                 deathSound.PlayOnce();
-                gameObject.SetActive(false);
-                Instantiate(deathScreen);
+                SceneManager.LoadScene("OnDeathScene");
             }
             hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
