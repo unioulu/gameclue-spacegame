@@ -13,6 +13,9 @@ public class HomingMovement : MonoBehaviour
     public AngleSelectorTarget homingSelector;
     public Rigidbody2D rb = null;
 
+    public Color homingColor = Color.red;
+    public float homingBlinkCount = 4f;
+
     private bool accuiringTarget = false;
     private bool targetAccuired = false;
 
@@ -36,6 +39,7 @@ public class HomingMovement : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             timeSpentLookingforTarget += Time.deltaTime;
+            Blink();
             if (timeSpentLookingforTarget > homingTime)
             {
                 rb.velocity = homingSelector.NormalizedVector() * homingSpeed;
@@ -43,11 +47,17 @@ public class HomingMovement : MonoBehaviour
                 targetAccuired = true;
             }
         }
-        else if (targetAccuired)
+
+    }
+
+
+    void Blink()
+    {
+        if (CueManager.HasCues())
         {
-
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.color = Color.Lerp(Color.white, homingColor, Mathf.PingPong(timeSpentLookingforTarget, homingTime / homingBlinkCount));
         }
-
     }
 
 }
