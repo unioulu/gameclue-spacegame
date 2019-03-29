@@ -1,5 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -13,7 +11,6 @@ public class Coin : MonoBehaviour
     private GameObject soundManagerInstance;
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Start()
     {
         ab = gameObject.GetComponent<Audiobank>();
@@ -31,11 +28,10 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            EventLogger.Log(EventLog.EventCode.PlayerCollidesWithPickUp(this.name));
             CoinHandler.SetScore(scoreValue);
-
             ab.PlayOnce();
             Destroy(gameObject);
-            
         }
     }
 }

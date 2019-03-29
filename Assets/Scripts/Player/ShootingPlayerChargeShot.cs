@@ -22,12 +22,6 @@ public class ShootingPlayerChargeShot : MonoBehaviour
     public Audiobank chargeShotSound;
     public bool playloop = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -62,6 +56,7 @@ public class ShootingPlayerChargeShot : MonoBehaviour
                     GameObject bulletinstance = Instantiate(chargeBulletPrefab, transform.position, Quaternion.identity);
                     bulletinstance.GetComponent<Bullet>().Angle = i * spreadAmnt + .5f * Mathf.PI;
                 }
+                EventLogger.Log(EventLog.EventCode.PlayerFiredChargedShot());
             }
             chargeSound.StopPlay();
             chargeReadySound.StopPlay();

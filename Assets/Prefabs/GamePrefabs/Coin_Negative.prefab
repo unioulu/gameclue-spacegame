@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 8325915779653754219}
   - component: {fileID: 3120943052810929406}
   - component: {fileID: 7425684421296329592}
+  - component: {fileID: 2767577054813370087}
+  - component: {fileID: 8405647323224424838}
+  - component: {fileID: 1496531217232503440}
   m_Layer: 0
   m_Name: Coin_Negative
   m_TagString: Untagged
@@ -30,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3649519080648097393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,11 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 512156407
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0.010103226, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d45841f6a4e84c34cb7b4440213c4381, type: 3}
+  m_Color: {r: 0.75539565, g: 0.2687344, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,3 +152,49 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 494364f296f27405aae4b0c7333f3eaf, type: 3}
+--- !u!111 &2767577054813370087
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 95cf958c3048c7347bbec52fb9efd050, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &8405647323224424838
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3636bd3bba6e2e4cb1dbb547b57f51c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1496531217232503440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6e947caf3a6c42aef365009fb6d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

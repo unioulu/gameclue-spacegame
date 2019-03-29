@@ -4720,7 +4720,6 @@ GameObject:
   - component: {fileID: 671799303720811261}
   - component: {fileID: 2808773121705870227}
   - component: {fileID: 3618208823571233273}
-  - component: {fileID: 3193932661477194422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4777,8 +4776,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -612820315
-  m_SortingLayer: 0
+  m_SortingLayerID: -1115900777
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 94c79ba73e2200649b49bde9e5bbae44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4805,17 +4804,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   hitCooldown: 2
-  playerDmgEffectSpeed: 2
+  playerDmgEffectSpeed: 5
   health: 3
-  healthTexture: {fileID: 2800000, guid: eec844d74ba134626afd9dc284f724a1, type: 3}
+  healthTexture: {fileID: 2800000, guid: 14ade2a80d049994dac755c77779c54c, type: 3}
   healthTextureSize: 50
-  healthTexturePadding: 4
+  healthTexturePadding: 1
   deathSound: {fileID: 2773896401649063868}
   hitSound: {fileID: 2649069084142295400}
   damageTags:
   - Enemy
   - EnemyBullet
-  deathScreen: {fileID: 0}
 --- !u!114 &3908071053341652024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5008,15 +5006,3 @@ MonoBehaviour:
   chargeReadySound: {fileID: 5176291457636706121}
   chargeShotSound: {fileID: 1437692353369883291}
   playloop: 1
---- !u!114 &3193932661477194422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8804307249713526965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23526879e2bdf410189a445789182944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

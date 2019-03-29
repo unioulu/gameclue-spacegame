@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 8325915779653754219}
   - component: {fileID: 3120943052810929406}
   - component: {fileID: 5691436807241011586}
+  - component: {fileID: 5630789786669051093}
+  - component: {fileID: 3027470456584827035}
+  - component: {fileID: 6620175313015769551}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -30,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3649519080648097393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,11 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 512156407
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.92013735, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d45841f6a4e84c34cb7b4440213c4381, type: 3}
+  m_Color: {r: 0.9622642, g: 0.54789406, b: 0.16794233, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,3 +152,50 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: aa5cce282dbd94a3ca390b040c280183, type: 3}
+--- !u!95 &5630789786669051093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3636bd3bba6e2e4cb1dbb547b57f51c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &3027470456584827035
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 02c0a0fc776f67641bddd785f455adfe, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 95cf958c3048c7347bbec52fb9efd050, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &6620175313015769551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649519080648097393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6e947caf3a6c42aef365009fb6d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

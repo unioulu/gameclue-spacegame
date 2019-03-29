@@ -30,6 +30,7 @@ public class ShootingPlayer : MonoBehaviour
             {
                 shootSound.PlayOnce();
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                EventLogger.Log(EventLog.EventCode.PlayerFiredNormalShot());
             }
             keyHoldTime = 0f;
         }

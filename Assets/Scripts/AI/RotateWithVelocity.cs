@@ -24,22 +24,26 @@ public class RotateWithVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velocity = rb.velocity;
+        if (CueManager.HasCues())
+        {
+            Vector3 velocity = rb.velocity;
 
-        transform.Rotate(-xRotation, -yRotation, 0f);
-        
-        if (velocity.x < 0)
-        {
-            yRotation = Mathf.Min(maxYRotation, yRotation + rotationSpeed);
-        }
-        else if (velocity.x > 0)
-        {
-            yRotation = Mathf.Max(-maxYRotation, yRotation - rotationSpeed);
-        } else
-        {
-            yRotation += yRotation > 0 ? -rotationSpeed : rotationSpeed;
-        }
+            transform.Rotate(-xRotation, -yRotation, 0f);
 
-        transform.Rotate(xRotation, yRotation, 0f);
+            if (velocity.x < 0)
+            {
+                yRotation = Mathf.Min(maxYRotation, yRotation + rotationSpeed);
+            }
+            else if (velocity.x > 0)
+            {
+                yRotation = Mathf.Max(-maxYRotation, yRotation - rotationSpeed);
+            }
+            else
+            {
+                yRotation += yRotation > 0 ? -rotationSpeed : rotationSpeed;
+            }
+
+            transform.Rotate(xRotation, yRotation, 0f);
+        }
     }
 }

@@ -55,6 +55,7 @@ public class CoinHandler : MonoBehaviour
     {
         coinInstance = Instantiate(coin, transform.position, Quaternion.identity);
         coinInstance.GetComponent<Coin>().CoinHandler = this;
+        EventLogger.Log(EventLog.EventCode.PickUpSpawned(coinInstance.name, coinInstance.transform.position.x, coinInstance.transform.position.y));
     }
 
     public void SetScore(int amount)

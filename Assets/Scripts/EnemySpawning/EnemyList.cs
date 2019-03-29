@@ -1,4 +1,3 @@
-﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +18,6 @@ public class EnemyList : MonoBehaviour
         }
     }
 
-
     public List<EnemyData> list { get; private set; }
 
     public void Awake()
@@ -35,6 +33,5 @@ public class EnemyList : MonoBehaviour
             list.Add(data);
         }
     }
-
 
 }
