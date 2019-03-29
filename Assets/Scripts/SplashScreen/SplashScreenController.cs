@@ -27,12 +27,10 @@ public class SplashScreenController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {   
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(MutationManager.MutationName()+"");
         }
-
     }
 }
