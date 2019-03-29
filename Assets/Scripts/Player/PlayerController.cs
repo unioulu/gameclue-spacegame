@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     public List<string> damageTags = new List<string>();
 
+    public GameObject deathScreen;
+
     void Awake()
     {
       EventLogger.Log(EventLog.EventCode.GameStarted());
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
                 EventLogger.Log(EventLog.EventCode.PlayerDied(other.gameObject.name, 1));
                 EventLogger.Log(EventLog.EventCode.GameEnded("PlayerDied"));
                 deathSound.PlayOnce();
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("OnDeathScene");
             }
             hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
