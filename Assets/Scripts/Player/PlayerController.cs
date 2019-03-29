@@ -103,7 +103,8 @@ public class PlayerController : MonoBehaviour
             if (health == 0)
             {
                 deathSound.PlayOnce();
-                deathScreen.SetActive(true);
+                gameObject.SetActive(false);
+                Instantiate(deathScreen);
             }
             hitSound.PlayOnce();
             currHitCooldown = hitCooldown;
