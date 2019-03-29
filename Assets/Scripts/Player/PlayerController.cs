@@ -7,6 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
 
+    public bool isDashOn;
+    public float dashCooldown = 2f;
+    public float dashMaxDelay = .6f;
+    private float dashTimer = 0;
+    private float LeftDashDelayTimer, RightDashDelayTimer = 0;
+    private int leftPresses, rightPresses = 0;
+
     public float hitCooldown = 2f;
     private float currHitCooldown;
     public int playerDmgEffectSpeed = 2;
@@ -25,10 +32,10 @@ public class PlayerController : MonoBehaviour
     private float playerSpriteSize;
 
     private KeyCode SHOOT = KeyCode.Space;
-    private List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
-    private List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
-    private List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
-    private List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
+    protected List<KeyCode> MOVE_LEFT = new List<KeyCode>(){KeyCode.LeftArrow, KeyCode.J};
+    protected List<KeyCode> MOVE_RIGHT = new List<KeyCode>(){KeyCode.RightArrow, KeyCode.L};
+    protected List<KeyCode> MOVE_UP = new List<KeyCode>(){KeyCode.UpArrow, KeyCode.I};
+    protected List<KeyCode> MOVE_DOWN = new List<KeyCode>(){KeyCode.DownArrow, KeyCode.K};
 
     private SpriteRenderer sr;
 
@@ -54,13 +61,36 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 pos = transform.position;
         Vector3 dirVector = Vector3.zero;
-        if (keysPressed(MOVE_LEFT) && pos.x > -edgeVector.x+playerSpriteSize) { dirVector.x = -1; }
+        if (keysPressed(MOVE_LEFT) && pos.x > -edgeVector.x+playerSpriteSize) { dirVector.x = -1; rightPresses = 0; }
 
-        if (keysPressed(MOVE_RIGHT) && pos.x < edgeVector.x-playerSpriteSize) { dirVector.x = 1; }
+        if (keysPressed(MOVE_RIGHT) && pos.x < edgeVector.x-playerSpriteSize) { dirVector.x = 1; leftPresses = 0; }
 
-        if (keysPressed(MOVE_UP) && pos.y < edgeVector.y-playerSpriteSize) { dirVector.y = 1; }
+        if (keysPressed(MOVE_UP) && pos.y < edgeVector.y-playerSpriteSize) { dirVector.y = 1; leftPresses = rightPresses = 0; }
 
-        if (keysPressed(MOVE_DOWN) && pos.y > -edgeVector.y+playerSpriteSize) { dirVector.y = -1; }
+        if (keysPressed(MOVE_DOWN) && pos.y > -edgeVector.y+playerSpriteSize) { dirVector.y = -1; leftPresses = rightPresses = 0; }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            leftPresses++;
+            LeftDashDelayTimer = 0;
+            if (LeftDashDelayTimer > dashMaxDelay)
+                leftPresses = 0;
+            if (leftPresses == 2 && dashTimer > dashCooldown)
+                Dash(-1);
+
+            Debug.Log("Left");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            rightPresses++;
+            RightDashDelayTimer = 0;
+            if (RightDashDelayTimer > dashMaxDelay)
+                rightPresses = 0;
+            if (rightPresses == 2 && dashTimer > dashCooldown)
+                Dash(1);
+
+            Debug.Log("Right");
+        }
 
         rb.velocity = dirVector.normalized * speed;
         dirVector = Vector3.zero;
@@ -80,7 +110,17 @@ public class PlayerController : MonoBehaviour
                 sr.enabled = true;
         }
 
+        dashTimer += Time.deltaTime;
+        LeftDashDelayTimer += Time.deltaTime;
+        RightDashDelayTimer += Time.deltaTime;
         spriteFlicker += playerDmgEffectSpeed;
+    }
+
+    private void Dash(int dir)
+    {
+        rb.position = (new Vector2(dir, transform.position.y));
+        dashTimer = 0;
+        leftPresses = rightPresses = 0;
     }
 
     private void OnGUI()

@@ -43,7 +43,6 @@ public class EnemySpawnList : MonoBehaviour
 
     public float TotalTime()
     {
-        Debug.Log(spawnList.Count);
         return spawnList[spawnList.Count - 1].time;
     }
 
