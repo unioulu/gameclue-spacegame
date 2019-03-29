@@ -11,19 +11,25 @@ public class Audiobank : MonoBehaviour
 
     public void PlayOnce()
     {
-        smInstance = Instantiate(soundManager);
-        ass = smInstance.GetComponent<AudioSource>();
-        ass.PlayOneShot(audioClip);
-        Destroy(smInstance, audioClip.length);
+        if (CueManager.HasCues())
+        {
+            smInstance = Instantiate(soundManager);
+            ass = smInstance.GetComponent<AudioSource>();
+            ass.PlayOneShot(audioClip);
+            Destroy(smInstance, audioClip.length);
+        }
     }
 
     public void PlayLoop()
     {
-        smInstance = Instantiate(soundManager);
-        ass = smInstance.GetComponent<AudioSource>();
-        ass.loop = true;
-        ass.clip = audioClip;
-        ass.Play();
+        if (CueManager.HasCues())
+        {
+            smInstance = Instantiate(soundManager);
+            ass = smInstance.GetComponent<AudioSource>();
+            ass.loop = true;
+            ass.clip = audioClip;
+            ass.Play();
+        }
     }
 
     public void StopPlay()
