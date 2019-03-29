@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         playerSpriteSize = transform.localScale.x;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 pos = transform.position;
         Vector3 dirVector = Vector3.zero;
@@ -69,27 +69,32 @@ public class PlayerController : MonoBehaviour
 
         if (keysPressed(MOVE_DOWN) && pos.y > -edgeVector.y+playerSpriteSize) { dirVector.y = -1; leftPresses = rightPresses = 0; }
 
+
+        if (RightDashDelayTimer > dashMaxDelay)
+            rightPresses = 0;
+
+        if (LeftDashDelayTimer > dashMaxDelay)
+            leftPresses = 0;
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             leftPresses++;
             LeftDashDelayTimer = 0;
-            if (LeftDashDelayTimer > dashMaxDelay)
-                leftPresses = 0;
-            if (leftPresses == 2 && dashTimer > dashCooldown)
-                Dash(-1);
 
-            Debug.Log("Left");
+            if (leftPresses == 3 && dashTimer > dashCooldown)
+                Dash(-2);
+
+            Debug.Log(leftPresses);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             rightPresses++;
             RightDashDelayTimer = 0;
-            if (RightDashDelayTimer > dashMaxDelay)
-                rightPresses = 0;
-            if (rightPresses == 2 && dashTimer > dashCooldown)
-                Dash(1);
 
-            Debug.Log("Right");
+            if (rightPresses == 3 && dashTimer > dashCooldown)
+                Dash(2);
+
+            Debug.Log(rightPresses);
         }
 
         rb.velocity = dirVector.normalized * speed;
@@ -118,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash(int dir)
     {
-        rb.position = (new Vector2(dir, transform.position.y));
+        rb.position = (new Vector2(rb.position.x + dir, rb.position.y));
         dashTimer = 0;
         leftPresses = rightPresses = 0;
     }
@@ -129,6 +134,8 @@ public class PlayerController : MonoBehaviour
         {
             GUI.DrawTexture(new Rect(healthTexturePadding + i * healthTextureSize, Screen.height - healthTextureSize - healthTexturePadding, healthTextureSize, healthTextureSize), healthTexture);
         }
+        if (dashTimer > dashCooldown)
+            GUI.TextArea(new Rect(0, 0, 200, 200), "Dash ready");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
