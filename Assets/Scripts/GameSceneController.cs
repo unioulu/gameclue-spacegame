@@ -30,23 +30,23 @@ public class GameSceneController : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt) || Input.GetKey(KeyCode.AltGr)) {
-            if (Input.GetKeyUp(KeyCode.F8))
+            if (Input.GetKeyUp(KeyCode.F7))
             {
                 ChangeToMutation("BaseGameScene");
             }
-            else if (Input.GetKeyUp(KeyCode.F9))
+            else if (Input.GetKeyUp(KeyCode.F8))
             {
                 ChangeToMutation("PointGameScene");
             }
-            else if (Input.GetKeyUp(KeyCode.F10))
+            else if (Input.GetKeyUp(KeyCode.F9))
             {
                 ChangeToMutation("MovementGameScene");
             }
-            else if (Input.GetKeyUp(KeyCode.F11))
+            else if (Input.GetKeyUp(KeyCode.F10))
             {
                 ChangeToMutation("ShootGameScene");
             }
-            else if (Input.GetKeyUp(KeyCode.F12))
+            else if (Input.GetKeyUp(KeyCode.F11))
             {
                 ChangeToMutation("InputGameScene");
             }
