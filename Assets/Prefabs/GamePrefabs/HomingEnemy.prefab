@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1286793469730262354}
   - component: {fileID: 4611162300534068957}
   - component: {fileID: 2748997298530169311}
+  - component: {fileID: 4772302978073342044}
   m_Layer: 0
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -142,6 +143,7 @@ MonoBehaviour:
   homingSpeed: 3
   homingSelector: {fileID: 1239933795226354535}
   rb: {fileID: 1239933795226354530}
+  homingSound: {fileID: 4772302978073342044}
   homingColor: {r: 1, g: 0, b: 0, a: 1}
   homingBlinkCount: 8
 --- !u!114 &1239933795226354535
@@ -202,6 +204,21 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
+--- !u!114 &4772302978073342044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239933795226354534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: f550c91c38d5f4dcb93eac2ed0c4eb4f, type: 3}
 --- !u!1001 &3738641720764659035
 PrefabInstance:
   m_ObjectHideFlags: 0
