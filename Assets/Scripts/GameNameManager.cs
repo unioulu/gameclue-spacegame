@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class GameNameManger
 {
@@ -51,9 +52,11 @@ public class GameNameManger
         gameName = "";
         const int wordCount = 4;
 
+        System.Random rnd = new System.Random();
+
         for (int i = 0; i < wordCount; ++i)
         {
-            string word = words[Random.Range(0, words.Count)];
+            string word = words[rnd.Next(0, words.Count)];
             word = word.ToLower();
             System.Text.StringBuilder sb = new System.Text.StringBuilder(word);
             sb[0] = char.ToUpper(sb[0]);

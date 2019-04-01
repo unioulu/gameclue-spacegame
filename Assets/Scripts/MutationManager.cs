@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MutationManager
 {
@@ -8,6 +9,13 @@ public class MutationManager
 
 
     private string mutationName = "BaseGameScene";
+
+    private string baseMutationName = "BaseGameScene";
+    private string fullGameMutationName = "FullGameScene";
+    private string[] mutations = { "PointGameScene", "MovementGameScene", "ShootGameScene", "InputGameScene" };
+
+    private string[] orderedMutations = null;
+    private int indexOfMutation = 0;
 
     static MutationManager singleton()
     {
@@ -21,6 +29,10 @@ public class MutationManager
     private MutationManager()
     {
 
+        System.Random rnd = new System.Random();
+        new UnityEngine.Random();
+        orderedMutations = mutations.OrderBy(x => rnd.Next()).ToArray();
+
     }
 
 
@@ -32,5 +44,24 @@ public class MutationManager
     public static void SetMutationName(string tobe)
     {
         singleton().mutationName = tobe;
+    }
+
+    public static string FullGameMutation()
+    {
+        return singleton().fullGameMutationName;
+    }
+
+    public static string GotoNextMutation()
+    {
+        string name = singleton().GetNextMutation();
+        SetMutationName(name);
+        return name;
+    }
+
+    private string GetNextMutation()
+    {
+        indexOfMutation++;
+        string name = orderedMutations[indexOfMutation];
+        return name;
     }
 }
