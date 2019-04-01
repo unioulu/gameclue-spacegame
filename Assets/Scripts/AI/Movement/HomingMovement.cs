@@ -13,6 +13,8 @@ public class HomingMovement : MonoBehaviour
     public AngleSelectorTarget homingSelector;
     public Rigidbody2D rb = null;
 
+    public Audiobank homingSound = null;
+
     public Color homingColor = Color.red;
     public float homingBlinkCount = 4f;
 
@@ -45,6 +47,9 @@ public class HomingMovement : MonoBehaviour
                 rb.velocity = homingSelector.NormalizedVector() * homingSpeed;
                 accuiringTarget = false;
                 targetAccuired = true;
+                if (CueManager.HasCues()) {
+                    homingSound.PlayOnce();
+                }
             }
         }
 
@@ -57,6 +62,7 @@ public class HomingMovement : MonoBehaviour
         {
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.color = Color.Lerp(Color.white, homingColor, Mathf.PingPong(timeSpentLookingforTarget, homingTime / homingBlinkCount));
+
         }
     }
 

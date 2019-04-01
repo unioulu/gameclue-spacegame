@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 3092629530811486983}
   - component: {fileID: 70798289592910151}
   - component: {fileID: 8610788500845915860}
-  - component: {fileID: 5415140315229727988}
-  - component: {fileID: 3571925108212169931}
+  - component: {fileID: 8115871105907404606}
+  - component: {fileID: 4160732107297161388}
   m_Layer: 0
-  m_Name: HoverEnemyRight
+  m_Name: HoverEnemyCenter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309c2ef247439214b95fa2a3af65c4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoint: {x: 5, y: -2, z: 0}
-  targetRadius: 3
+  targetPoint: {x: 0, y: 0, z: 0}
+  targetRadius: 4
   speed: 2
 --- !u!114 &3092629530811486983
 MonoBehaviour:
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  enemyDeathSound: {fileID: 3571925108212169931}
-  enemyHitSound: {fileID: 5415140315229727988}
+  enemyDeathSound: {fileID: 4160732107297161388}
+  enemyHitSound: {fileID: 8115871105907404606}
 --- !u!114 &70798289592910151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d6f8c0890cb41feb18cb3ca932bfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCenterPosition: {x: 5, y: -2, z: 0}
-  hoverRadius: 3
+  targetCenterPosition: {x: 0, y: 0, z: 0}
+  hoverRadius: 4
   speed: 2
 --- !u!58 &8610788500845915860
 CircleCollider2D:
@@ -169,7 +169,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1
---- !u!114 &5415140315229727988
+--- !u!114 &8115871105907404606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
   audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}
---- !u!114 &3571925108212169931
+--- !u!114 &4160732107297161388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

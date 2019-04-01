@@ -7,6 +7,8 @@ public class Coin : MonoBehaviour
 
     public CoinHandler CoinHandler { set; private get; }
 
+    public ParticleSystem pickupParticlesPrefab;
+
     private Audiobank ab;
     private GameObject soundManagerInstance;
     private Rigidbody2D rb;
@@ -31,6 +33,9 @@ public class Coin : MonoBehaviour
             EventLogger.Log(EventLog.EventCode.PlayerCollidesWithPickUp(this.name));
             CoinHandler.SetScore(scoreValue);
             ab.PlayOnce();
+            if (CueManager.HasCues()) {
+                GameObject.Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

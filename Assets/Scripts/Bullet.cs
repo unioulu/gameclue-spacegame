@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public ParticleSystem hitParticlePrefab;
+
     public List<string> collisionTags = new List<string>();
 
     // Start is called before the first frame update
@@ -27,6 +29,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collisionTags.Contains(other.tag)) { Destroy(gameObject); }
+        if (collisionTags.Contains(other.tag)) {
+            if (CueManager.HasCues()) {
+                Instantiate(hitParticlePrefab, rb.position, Quaternion.identity);
+            }
+            Destroy(gameObject); 
+        }
     }
 }
