@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
-public class GameNameGenerator : MonoBehaviour
+public class GameNameManger
 {
 
-    private List<string> words;
+    private static GameNameManger instance = null;
 
-    private string gameName = null;
+    static GameNameManger singleton()
+    {
+        if (instance == null)
+        {
+            instance = new GameNameManger();
+        }
+        return instance;
+    }
 
-    private void Awake()
+    private GameNameManger()
     {
         words = new List<string>();
         string path = Path.Combine(Application.streamingAssetsPath, "words.txt");
@@ -19,20 +27,36 @@ public class GameNameGenerator : MonoBehaviour
 
         string contents = file.ReadToEnd();
 
-        foreach (string word in contents.Split('|')) {
+        foreach (string word in contents.Split('|'))
+        {
             words.Add(word);
         }
-
     }
+
+
+    public static string Name()
+    {
+        return singleton().GetName();
+    }
+
+
+
+
+    private List<string> words;
+
+    private string gameName = null;
+
 
     private string CreateName()
     {
         gameName = "";
         const int wordCount = 4;
 
+        System.Random rnd = new System.Random();
+
         for (int i = 0; i < wordCount; ++i)
         {
-            string word = words[Random.Range(0, words.Count)];
+            string word = words[rnd.Next(0, words.Count)];
             word = word.ToLower();
             System.Text.StringBuilder sb = new System.Text.StringBuilder(word);
             sb[0] = char.ToUpper(sb[0]);
@@ -44,7 +68,7 @@ public class GameNameGenerator : MonoBehaviour
         return gameName;
     }
 
-    public string Name()
+    public string GetName()
     {
         return gameName == null ? CreateName() : gameName;
     }
