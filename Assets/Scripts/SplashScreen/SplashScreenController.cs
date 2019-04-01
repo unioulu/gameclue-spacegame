@@ -11,9 +11,6 @@ public class SplashScreenController : MonoBehaviour
     UI.Text gameNameLabel = null;
 
     [SerializeField]
-    private bool hasCues = true;
-
-    [SerializeField]
     private SpriteRenderer cueIndicator = null;
 
     [SerializeField]
@@ -25,7 +22,6 @@ public class SplashScreenController : MonoBehaviour
     {
         EventLogger.SetName(GameNameManger.Name());
         gameNameLabel.text = GameNameManger.Name();
-        CueManager.SetCues(hasCues);
         EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
 
         UpdateCueIndicator();
@@ -40,8 +36,7 @@ public class SplashScreenController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.F12))
         {
-            hasCues = !hasCues;
-            CueManager.SetCues(hasCues);
+            CueManager.SetCues(!CueManager.HasCues());
             EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
             UpdateCueIndicator();
         }
