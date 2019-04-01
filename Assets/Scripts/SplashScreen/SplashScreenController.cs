@@ -13,6 +13,12 @@ public class SplashScreenController : MonoBehaviour
     [SerializeField]
     private bool hasCues = true;
 
+    [SerializeField]
+    private SpriteRenderer cueIndicator = null;
+
+    [SerializeField]
+    private SpriteRenderer noCueIndicator = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +27,8 @@ public class SplashScreenController : MonoBehaviour
         gameNameLabel.text = GameNameManger.Name();
         CueManager.SetCues(hasCues);
         EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
+
+        UpdateCueIndicator();
     }
 
     // Update is called once per frame
@@ -35,6 +43,13 @@ public class SplashScreenController : MonoBehaviour
             hasCues = !hasCues;
             CueManager.SetCues(hasCues);
             EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
+            UpdateCueIndicator();
         }
+    }
+
+    void UpdateCueIndicator()
+    {
+        cueIndicator.enabled = CueManager.HasCues();
+        noCueIndicator.enabled = !CueManager.HasCues();
     }
 }
