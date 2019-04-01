@@ -39,7 +39,7 @@ public class ShootingPlayerChargeShot : MonoBehaviour
                 chargeReadySound.PlayLoop();
                 playloop = false;
             }
-            if (charge > particleStartDelay && chargeParticles.IsAlive() == false)
+            if (charge > particleStartDelay && chargeParticles.IsAlive() == false && CueManager.HasCues())
             {
                 chargeParticles.Play();
             }

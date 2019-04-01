@@ -45,11 +45,16 @@ public class EnemyShooting : MonoBehaviour
     }
 
     void ShowSprite(Sprite sprite) {
+      if (CueManager.HasCues()) {
         if (currentSprite != sprite)
         {
             currentSprite = sprite;
             SpriteRenderer sr = this.gameObject.GetComponent<SpriteRenderer>();
             sr.sprite = sprite;
         }
+      } else {
+        SpriteRenderer sr = this.gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = idleSprite;
+      }
     }
 }
