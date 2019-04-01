@@ -4777,7 +4777,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1115900777
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 94c79ba73e2200649b49bde9e5bbae44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4814,6 +4814,7 @@ MonoBehaviour:
   damageTags:
   - Enemy
   - EnemyBullet
+  deathScreen: {fileID: 0}
 --- !u!114 &3908071053341652024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,7 +4954,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009673893, y: 0.022573948}
+  m_Offset: {x: -0.010779917, y: -0.14787436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4964,7 +4965,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34775817, y: 1.5860987}
+  m_Size: {x: 0.7977418, y: 1.2452021}
   m_EdgeRadius: 0
 --- !u!114 &2808773121705870227
 MonoBehaviour:
