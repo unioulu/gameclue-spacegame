@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3092629530811486983}
   - component: {fileID: 70798289592910151}
   - component: {fileID: 8610788500845915860}
+  - component: {fileID: 5415140315229727988}
+  - component: {fileID: 3571925108212169931}
   m_Layer: 0
   m_Name: HoverEnemyRight
   m_TagString: Enemy
@@ -134,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  enemyDeathSound: {fileID: 0}
-  enemyHitSound: {fileID: 0}
+  enemyDeathSound: {fileID: 3571925108212169931}
+  enemyHitSound: {fileID: 5415140315229727988}
 --- !u!114 &70798289592910151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +169,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1
+--- !u!114 &5415140315229727988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092629530811486982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}
+--- !u!114 &3571925108212169931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092629530811486982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
 --- !u!1001 &7524354222387845622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,11 +206,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3092629530811486977}
     m_Modifications:
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyTrailParticle
-      objectReference: {fileID: 0}
     - target: {fileID: 21486036438017202, guid: 3428ef114974e504e824b80a53e53a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyTrailParticle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3428ef114974e504e824b80a53e53a1b, type: 3}

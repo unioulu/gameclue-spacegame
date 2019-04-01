@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1239933795226354528}
   - component: {fileID: 1239933795226354535}
   - component: {fileID: 1286793469730262354}
+  - component: {fileID: 4611162300534068957}
+  - component: {fileID: 2748997298530169311}
   m_Layer: 0
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -168,8 +170,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  enemyDeathSound: {fileID: 0}
-  enemyHitSound: {fileID: 0}
+  enemyDeathSound: {fileID: 2748997298530169311}
+  enemyHitSound: {fileID: 4611162300534068957}
+--- !u!114 &4611162300534068957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239933795226354534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 3485718e3442349d8a51668e35092cb4, type: 3}
+--- !u!114 &2748997298530169311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239933795226354534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562fc55670b6b43ef8017e2558f91e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 45450c3b1fb4b4c81b4ca9793246365d, type: 3}
 --- !u!1001 &3738641720764659035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,17 +209,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1239933795226354540}
     m_Modifications:
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyTrailParticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 21486036438017202, guid: 3428ef114974e504e824b80a53e53a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,6 +264,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyTrailParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3428ef114974e504e824b80a53e53a1b, type: 3}
 --- !u!4 &3723922435400339945 stripped
