@@ -8,9 +8,6 @@ public class SplashScreenController : MonoBehaviour
 {
 
     [SerializeField]
-    GameNameGenerator nameGenerator = null;
-
-    [SerializeField]
     UI.Text gameNameLabel = null;
 
     [SerializeField]
@@ -20,8 +17,8 @@ public class SplashScreenController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventLogger.SetName(nameGenerator.Name());
-        gameNameLabel.text = nameGenerator.Name();
+        EventLogger.SetName(GameNameManger.Name());
+        gameNameLabel.text = GameNameManger.Name();
         CueManager.SetCues(hasCues);
         EventLogger.Log(EventLog.EventCode.GameHasCues(CueManager.HasCues()));
     }
