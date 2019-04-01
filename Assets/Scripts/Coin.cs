@@ -33,7 +33,9 @@ public class Coin : MonoBehaviour
             EventLogger.Log(EventLog.EventCode.PlayerCollidesWithPickUp(this.name));
             CoinHandler.SetScore(scoreValue);
             ab.PlayOnce();
-            GameObject.Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
+            if (CueManager.HasCues()) {
+                GameObject.Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
