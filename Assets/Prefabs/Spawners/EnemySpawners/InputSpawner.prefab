@@ -122,10 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 1781319869587213741}
-  minSpawnTime: 0.25
-  maxSpawnTime: 0.8
-  minSpawnPosition: -7
-  maxSpawnPosition: 7
+  minSpawnTime: 0.1
+  maxSpawnTime: 0.2
+  spawnpointOffset: 0.6
 --- !u!1001 &5261694173707938326
 PrefabInstance:
   m_ObjectHideFlags: 0
