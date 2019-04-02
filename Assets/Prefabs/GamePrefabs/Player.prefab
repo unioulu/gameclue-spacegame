@@ -4890,7 +4890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 4000824920942544810, guid: b23860b7ec180423ea43e296a058754a,
     type: 3}
-  audioClip: {fileID: 8300000, guid: 22da8c460b9e64bd8869060f3e573819, type: 3}
+  audioClip: {fileID: 8300000, guid: bfec71cc52992634eb2184c56c83a67d, type: 3}
 --- !u!114 &5176291457636706121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   bulletAmnt: 10
   spreadAmnt: 0.1
   particleStartDelay: 0.2
-  chargeTime: 2.3
+  chargeTime: 1
   chargeParticles: {fileID: 4505185072086076251}
   shootKey: 32
   chargeSound: {fileID: 3238335007951192750}
