@@ -25,7 +25,8 @@ public class EnemyShooting : MonoBehaviour
 
         if (shootTimer > shootCooldown)
         {
-            Bullet bulletInstance = Instantiate<Bullet>(bulletPrefab, transform.position, Quaternion.identity);
+            Bullet bulletInstance = Instantiate<Bullet>(bulletPrefab);
+            bulletInstance.transform.position = transform.position;
             bulletInstance.speed = bulletSpeed;
             float angle = Vector3.SignedAngle(selector.NormalizedVector(), Vector3.right, Vector3.back) * Mathf.Deg2Rad;
             bulletInstance.Angle = angle;

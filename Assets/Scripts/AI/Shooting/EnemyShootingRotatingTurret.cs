@@ -9,6 +9,11 @@ public class EnemyShootingRotatingTurret : MonoBehaviour
 
     float previousAngle = 0f;
 
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().enabled = CueManager.HasCues();
+    }
+
     // Update is called once per frame
     void Update()
     {
