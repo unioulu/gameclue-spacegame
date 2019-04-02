@@ -60,8 +60,12 @@ public class MutationManager
 
     private string GetNextMutation()
     {
-        indexOfMutation++;
-        string name = orderedMutations[indexOfMutation];
-        return name;
+        if (indexOfMutation < orderedMutations.Length)
+        {
+            string name = orderedMutations[indexOfMutation];
+            indexOfMutation++;
+            return name;
+        }
+        return baseMutationName;
     }
 }
