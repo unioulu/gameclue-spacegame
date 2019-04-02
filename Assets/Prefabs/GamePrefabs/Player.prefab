@@ -4809,12 +4809,13 @@ MonoBehaviour:
   healthTexture: {fileID: 2800000, guid: 14ade2a80d049994dac755c77779c54c, type: 3}
   healthTextureSize: 50
   healthTexturePadding: 1
+  hitParticles: {fileID: 6363318567102551643, guid: 65d479b115f3e4149a2fe584fe046275,
+    type: 3}
   deathSound: {fileID: 2773896401649063868}
   hitSound: {fileID: 2649069084142295400}
   damageTags:
   - Enemy
   - EnemyBullet
-  deathScreen: {fileID: 0}
 --- !u!114 &3908071053341652024
 MonoBehaviour:
   m_ObjectHideFlags: 0

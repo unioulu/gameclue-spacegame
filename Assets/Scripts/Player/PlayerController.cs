@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    public ParticleSystem hitParticles = null;
+
     // Audio stuff
     public Audiobank deathSound = null;
     public Audiobank hitSound = null;
 
     public List<string> damageTags = new List<string>();
-
-    public GameObject deathScreen;
 
     void Awake()
     {
@@ -104,6 +104,10 @@ public class PlayerController : MonoBehaviour
         {
             spriteFlicker = 0;
             health--;
+            if (CueManager.HasCues())
+            {
+                Instantiate(hitParticles, transform.position, Quaternion.identity);
+            }
             EventLogger.Log(EventLog.EventCode.PlayerReceivedDamage(other.gameObject.name, 1));
             if (health == 0)
             {
