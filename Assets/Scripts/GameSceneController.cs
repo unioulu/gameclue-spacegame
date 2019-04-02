@@ -54,6 +54,10 @@ public class GameSceneController : MonoBehaviour
             {
                 ChangeToMutation(MutationManager.GotoNextMutation());
             }
+            else if (Input.GetKeyUp(KeyCode.Alpha0))
+            {
+                ChangeToMutation(MutationManager.FullGameMutation());
+            }
         }
 
         if (escapePressed)

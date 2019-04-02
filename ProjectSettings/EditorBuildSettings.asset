@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OnDeathScene.unity
     guid: 2a9307b4fcbaf461e885f17b5dd0b29a
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/FullGameScene.unity
+    guid: cc3a839d786e5c84ebd17b5be0d1f3cb
   m_configObjects: {}
