@@ -50,12 +50,12 @@ If you are interested in trying to create a game using this project as your base
 ## Creating new scenes:
 
 1. Go to Assets/Scenes and duplicate any scene you want to use as a base for your new scene. (OnDeathScene and SplashScreen are special scenes, and are not covered by these instructions)
-1. Remove the enemy spawner gameObject from the scene. This is named ~something~Spawner, and contains three children.
-1. Go to Assets/Prefabs/Spawners/EnemySpawners.
+1. Remove the enemy spawner gameObject from the scene. This is named `~something~Spawner`, and contains three children.
+1. Go to `Assets/Prefabs/Spawners/EnemySpawners`.
 1. Select an enemy spawner you want to use, or create a new one. (Note: if you change any existing spawner without duplicating it, then the change applies also to all scenes that use that spawner.)
-	1. To create a new enemySpawner, copy an existing enemySpawner prefab, and change it's EnemyList->defaultPrefabs and EnemySpawner->enemyPrefabs
-	1. EnemySpawner->enemyPrefabs is the list of prefabs that enemySpawner can spawn. All enemies that can appear in the scene should be included here.
-	1. EnemyList->defaultPrefabs is used by SpawnList to create the enemy spawning pattern using the seed given in EnemySpawner. This list can include multiple copies of a prefab in order to control the spawning probability.
+	1. To create a new enemySpawner, copy an existing enemySpawner prefab, and change it's `EnemyList->defaultPrefabs` and `EnemySpawner->enemyPrefabs`
+	1. `EnemySpawner->enemyPrefabs` is the list of prefabs that enemySpawner can spawn. All enemies that can appear in the scene should be included here.
+	1. `EnemyList->defaultPrefabs` is used by SpawnList to create the enemy spawning pattern using the seed given in EnemySpawner. This list can include multiple copies of a prefab in order to control the spawning probability.
 1. Drag your selected enemy spawner to the scene to replace the spawner you removed from the scene previously.
 1. Add any other gameObjects you want to that scene.
 1. Go to File->Build Settings and add your new scene to Scenes in Build.
@@ -65,13 +65,13 @@ If you are interested in trying to create a game using this project as your base
 
 1. Create new gameObject that contains a RigidBody2D and SpriteRenderer.
 1. Add sprite to SpriteRenderer and make sure that the collider in RigidBody2D is proper size to your sprite.
-1. Add one script from Assets/AI/Movement to that gameObject
-1. Add one script from Assets/AI/Collision to that gameObject
+1. Add one script from `Assets/AI/Movement` to that gameObject
+1. Add one script from `Assets/AI/Collision` to that gameObject
 1. Add other scripts that the AI needs for its behavior.
 1. Create a prefab from the gameObject by dragging it into the prefabs folder in Unity Editor.
 	1. (Remove the gameObject from the active scene)
-1. Open the prefab for the spawner you use in the scene the enemy is meant to spawn in (found in Assets/Prefabs/Spawners/EnemySpawners).
-1. Drag the enemy prefab to the spawner prefab's EnemyList->defaultPrefabs and EnemySpawner->enemyPrefabs
+1. Open the prefab for the spawner you use in the scene the enemy is meant to spawn in (found in `Assets/Prefabs/Spawners/EnemySpawners`).
+1. Drag the enemy prefab to the spawner prefab's `EnemyList->defaultPrefabs` and `EnemySpawner->enemyPrefabs`
 
 
 # To do
