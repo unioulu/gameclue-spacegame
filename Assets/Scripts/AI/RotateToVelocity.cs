@@ -9,6 +9,14 @@ public class RotateToVelocity : MonoBehaviour
 
     private float previousRotation = 0f;
 
+    private void Start()
+    {
+        if (CueManager.HasCues())
+        {
+            transform.rotation = Quaternion.identity;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
