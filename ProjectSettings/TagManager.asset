@@ -60,3 +60,6 @@ TagManager:
   - name: Player
     uniqueID: 3179066519
     locked: 0
+  - name: HitParticle
+    uniqueID: 1196258471
+    locked: 0

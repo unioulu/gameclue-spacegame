@@ -139,6 +139,8 @@ MonoBehaviour:
   maxHealth: 3
   enemyDeathSound: {fileID: 7210836674478596886}
   enemyHitSound: {fileID: 6183264944246285533}
+  dmg1Sprite: {fileID: 21300000, guid: ab8ff5a26ef58794e9a628c692c22960, type: 3}
+  dmg2Sprite: {fileID: 21300000, guid: a1e43268e1d408f4dba39f2ecb292fc9, type: 3}
 --- !u!58 &7487325565665107460
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,6 +194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7893085864451236805}
     m_Modifications:
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyTrailParticle
+      objectReference: {fileID: 0}
     - target: {fileID: 21486036438017202, guid: 3428ef114974e504e824b80a53e53a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -246,11 +253,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyTrailParticle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3428ef114974e504e824b80a53e53a1b, type: 3}

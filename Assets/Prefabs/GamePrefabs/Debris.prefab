@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 573085581
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 04901c29a3157a44097e5cc7ee740991, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17c3358a440ee474f8f13460fc356a20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -139,6 +139,8 @@ MonoBehaviour:
   maxHealth: 3
   enemyDeathSound: {fileID: 7737428633540899003}
   enemyHitSound: {fileID: 8191415110703705610}
+  dmg1Sprite: {fileID: 21300000, guid: 57d38ea3c5cd0384ab0cb6cc5e426721, type: 3}
+  dmg2Sprite: {fileID: 21300000, guid: cdb64c177c113224fa9fa521338d47f7, type: 3}
 --- !u!114 &4256275516470018468
 MonoBehaviour:
   m_ObjectHideFlags: 0

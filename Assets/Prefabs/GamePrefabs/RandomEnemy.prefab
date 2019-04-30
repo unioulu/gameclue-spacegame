@@ -54,6 +54,8 @@ MonoBehaviour:
   maxHealth: 2
   enemyDeathSound: {fileID: 4374613884301057072}
   enemyHitSound: {fileID: 1416595167715090945}
+  dmg1Sprite: {fileID: 21300000, guid: ab8ff5a26ef58794e9a628c692c22960, type: 3}
+  dmg2Sprite: {fileID: 21300000, guid: a1e43268e1d408f4dba39f2ecb292fc9, type: 3}
 --- !u!114 &2838009046906801387
 MonoBehaviour:
   m_ObjectHideFlags: 0

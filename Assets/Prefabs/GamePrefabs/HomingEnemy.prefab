@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 573085581
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f125c2aef61c7514b9032803b9362d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -174,6 +174,8 @@ MonoBehaviour:
   maxHealth: 3
   enemyDeathSound: {fileID: 2748997298530169311}
   enemyHitSound: {fileID: 4611162300534068957}
+  dmg1Sprite: {fileID: 21300000, guid: ab8ff5a26ef58794e9a628c692c22960, type: 3}
+  dmg2Sprite: {fileID: 21300000, guid: a1e43268e1d408f4dba39f2ecb292fc9, type: 3}
 --- !u!114 &4611162300534068957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +228,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1239933795226354540}
     m_Modifications:
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyTrailParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 21486036438017202, guid: 3428ef114974e504e824b80a53e53a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,17 +294,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyTrailParticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550273924730296567, guid: 3428ef114974e504e824b80a53e53a1b,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
-        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3428ef114974e504e824b80a53e53a1b, type: 3}
 --- !u!4 &3723922435400339945 stripped
