@@ -11,6 +11,9 @@ public class Killable : MonoBehaviour
     public Audiobank enemyDeathSound;
     public Audiobank enemyHitSound;
 
+    public Sprite dmg1Sprite = null;
+    public Sprite dmg2Sprite = null;
+
     void Start()
     {
         health = maxHealth;
@@ -35,10 +38,33 @@ public class Killable : MonoBehaviour
         {
             int damage = other.gameObject.GetComponent<Bullet>().damage;
             health -= damage;
+            ChangeDamageSprite();
             EventLogger.Log(EventLog.EventCode.EnemyReceivedDamage(other.name, damage));
             if (enemyHitSound != null)
             {
                 enemyHitSound.PlayOnce();
+            }
+        }
+    }
+
+    private void ChangeDamageSprite()
+    {
+        if (CueManager.HasCues()) {
+            if (health == maxHealth - 1)
+            {
+                if (dmg1Sprite != null)
+                {
+
+                    GetComponent<SpriteRenderer>().sprite = dmg1Sprite;
+                }
+            }
+            else if (health <= maxHealth - 2)
+            {
+                if (dmg2Sprite != null)
+                {
+
+                    GetComponent<SpriteRenderer>().sprite = dmg2Sprite;
+                }
             }
         }
     }
