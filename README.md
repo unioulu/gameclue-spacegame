@@ -1,6 +1,6 @@
 # GameClue
 
-This is a game platform for researching audiovisual clues.
+This is a game platform for researching effects of audiovisual cues.
 
 # Start contribution
 
