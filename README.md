@@ -41,10 +41,10 @@ There is a release branch that includes Windows binaries, but if you want to com
 If you are interested in trying to create a game using this project as your base, then use the following instructions to change stuff around:
 
 ## Naming convention:
-If scripts require you to drag elements to them in Unity Editor then naming conventions tell you what kind of component needs to be dragged to that component.
-If you should drag a prefab to a script, then the handle for that is named with a "prefab" suffix. (e.g. enemyPrefabs in EnemySpawner)
-If you should drag a component from the same gameObject to a script, then the handle does not have a suffix. (e.g. rigidBody in almost all movement scripts)
-If you should drag another gameObject from a scene to a prefab to a script, then the handles is named with "object" suffix.
+* If scripts require you to drag elements to them in Unity Editor then naming conventions tell you what kind of component needs to be dragged to that component.
+* If you should drag a prefab to a script, then the handle for that is named with a "prefab" suffix. (e.g. enemyPrefabs in EnemySpawner)
+* If you should drag a component from the same gameObject to a script, then the handle does not have a suffix. (e.g. rigidBody in almost all movement scripts)
+* If you should drag another gameObject from a scene to a prefab to a script, then the handles is named with "object" suffix.
 
 
 ## Creating new scenes:
@@ -76,6 +76,6 @@ If you should drag another gameObject from a scene to a prefab to a script, then
 
 # To do
 
-There is no road map as such, but this project has a kanban board, that lists all features that still need to be implemented.
+There is no road map as such, but this project has a [kanban board](https://github.com/unioulu/gameclue-spacegame/projects/1), that lists all features that still need to be implemented.
 
 Currently this application does not support easily swappable graphics and animations, which is the biggest shortcoming of this project if it is meant to be used for other similar research projects. Luckiliy swapping sprites is easy in Unity, and animations are learnable after a couple of hours of googling.
